@@ -6,7 +6,6 @@
 /dts-v1/;
 #include "zynq-7000.dtsi"
 
-
 / {
 	model = "D-TACQ ACQ1001 DAQ Appliance";
 	compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
@@ -110,8 +109,10 @@
 };
 
 &i2c0 {
-		i2c-reset = <&gpio0 46 0>;
-		i2cswitch@74 {
+	status = "okay";
+	
+	i2c-reset = <&gpio0 46 0>;
+	i2cswitch@74 {
 		compatible = "nxp,pca9546";
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -121,7 +122,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <0>;
-			
+		
 			mbclk: gpio@22 {
 				compatible="ti,tca6424";
 				reg=<0x22>;
@@ -140,7 +141,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <0x1>;
-		
+	
 			eeprom@50 {
 				compatible = "at,24c64";
 				reg = <0x50>;
@@ -150,8 +151,5 @@
 				reg=<0x28>;
 			};
 		};
-	};	
+	};
 };
-
-
-
