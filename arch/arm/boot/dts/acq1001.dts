@@ -125,10 +125,15 @@
 		
 			mbclk: gpio@22 {
 				compatible="ti,tca6424";
+				vcc-supply = <&regulator_vccpint>;				
+				interrupts = <0 0>;
 				reg=<0x22>;
 			};	
 			leds: gpio@23 {
 				compatible="ti,tca6424";
+				vcc-supply = <&regulator_vccpint>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 0>;
 				reg=<0x23>;
 			};			
 			hwmon@28 {
