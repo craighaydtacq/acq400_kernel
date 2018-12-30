@@ -10,6 +10,8 @@
  * published by the Free Software Foundation.
  */
 
+#ifdef PGMCOMOUT
+
 #include <linux/device.h>
 #include <linux/err.h>
 #include <linux/module.h>
@@ -355,3 +357,8 @@ struct dma_chan *of_dma_xlate_by_chan_id(struct of_phandle_args *dma_spec,
 	return dma_get_slave_channel(candidate);
 }
 EXPORT_SYMBOL_GPL(of_dma_xlate_by_chan_id);
+
+#else
+#pragma message "PGMWASHERE: of_dma is a module in ACQ420"
+#endif
+

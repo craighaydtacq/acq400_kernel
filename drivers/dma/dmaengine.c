@@ -41,6 +41,8 @@
  * See Documentation/dmaengine.txt for more details
  */
 
+#ifdef PGMCOMOUT
+
 #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
 
 #include <linux/platform_device.h>
@@ -1294,5 +1296,11 @@ static int __init dma_bus_init(void)
 	return class_register(&dma_devclass);
 }
 arch_initcall(dma_bus_init);
+
+#else
+
+#pragma message "PGMWASHERE dmaengine is a module see dmaengine314 in ACQ420"
+
+#endif
 
 
