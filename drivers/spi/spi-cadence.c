@@ -138,8 +138,30 @@ static inline u32 cdns_spi_read(struct cdns_spi *xspi, u32 offset)
 	return readl_relaxed(xspi->regs + offset);
 }
 
+int zynq_spi_goslow_usec_kludge;
+EXPORT_SYMBOL_GPL(zynq_spi_goslow_usec_kludge);
+
 static inline void cdns_spi_write(struct cdns_spi *xspi, u32 offset, u32 val)
 {
+	switch(offset){
+	case CDNS_SPI_CR:
+	case CDNS_SPI_ER:
+	default:
+		break;
+	case CDNS_SPI_TXD:
+		if (zynq_spi_goslow_usec_kludge > 0){
+			usleep_range(zynq_spi_goslow_usec_kludge, zynq_spi_goslow_usec_kludge*2);
+		}else if (zynq_spi_goslow_usec_kludge < 0){
+			udelay(-zynq_spi_goslow_usec_kludge);
+		}else{
+			;
+		}
+		dev_dbg(0, "cdns_spi_write: [%02x] tx:%d rx:%d bsy:%d %08x\n",
+			offset,
+			xspi->tx_bytes, xspi->rx_bytes, xspi->dev_busy, val);
+
+		;
+	}
 	writel_relaxed(val, xspi->regs + offset);
 }
 
@@ -173,6 +195,10 @@ static void cdns_spi_init_hw(struct cdns_spi *xspi)
 	cdns_spi_write(xspi, CDNS_SPI_ER, CDNS_SPI_ER_ENABLE);
 }
 
+
+int (*zynq_spi_cs_hook)(int ch, int cs, int is_high);
+EXPORT_SYMBOL_GPL(zynq_spi_cs_hook);
+
 /**
  * cdns_spi_chipselect - Select or deselect the chip select line
  * @spi:	Pointer to the spi_device structure
@@ -182,9 +208,13 @@ static void cdns_spi_chipselect(struct spi_device *spi, bool is_high)
 {
 	struct cdns_spi *xspi = spi_master_get_devdata(spi->master);
 	u32 ctrl_reg;
+	int cs = spi->chip_select;
 
 	ctrl_reg = cdns_spi_read(xspi, CDNS_SPI_CR);
 
+	if (zynq_spi_cs_hook){
+		cs = zynq_spi_cs_hook(spi->master->bus_num, cs, is_high);
+	}
 	if (is_high) {
 		/* Deselect the slave */
 		ctrl_reg |= CDNS_SPI_CR_SSCTRL;
