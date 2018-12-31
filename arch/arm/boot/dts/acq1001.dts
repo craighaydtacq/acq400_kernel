@@ -12,8 +12,7 @@
 
 	aliases {
 		ethernet0 = &gem0;
-		serial0 = &uart1;
-		spi0 = &qspi;
+		serial0 = &uart1;		
 		mmc0 = &sdhci0;
 	};
 
@@ -203,3 +202,12 @@
 		};
 	};
 };
+
+&spi0 {
+       status = "okay";
+       num-cs = <6>;
+       is-decoded-cs = <1>;
+};
+
+
+
