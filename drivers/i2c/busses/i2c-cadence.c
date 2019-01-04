@@ -820,10 +820,18 @@ static int cdns_i2c_process_msg(struct cdns_i2c *id, struct i2c_msg *msg,
 	/* Wait for the signal of completion */
 	time_left = wait_for_completion_timeout(&id->xfer_done, adap->timeout);
 	if (time_left == 0) {
+		char data[16] = {};
+		int ii;
+		for (ii = 0; ii < msg->len && ii*2 < sizeof(data); ++ii){
+			snprintf(data+2*ii, 2, "%02x", msg->buf[ii]);
+		}
 		i2c_recover_bus(adap);
 		cdns_i2c_master_reset(adap);
+
 		dev_err(id->adap.dev.parent,
-				"timeout waiting on completion\n");
+				"timeout %d a:%d-%04x %c l:%d d:%s\n",
+				adap->timeout, id->adap.nr, msg->addr,
+				(msg->flags & I2C_M_RD)? 'R': 'W', msg->len, data);
 		return -ETIMEDOUT;
 	}
 
