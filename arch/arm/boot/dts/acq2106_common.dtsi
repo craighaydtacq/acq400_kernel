@@ -23,7 +23,7 @@
 		#size-cells = <0>;
 		reg = <0x74>;
 		
-		i2c@0 {
+		mb_i2c: i2c@0 {
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <0>;
@@ -214,5 +214,21 @@
 		interrupts = <0x0 34 0x0>;
 		interrupt-parent = <0x1>;
 		site = <0x6>;
+	};
+	commsB: mgt400@400c0000 {
+		compatible = "D-TACQ,mgt400";
+		reg = <0x400c0000 0x10000>;			
+		interrupts = <0x0 0x3a 0x0>;
+		interrupt-parent = <0x1>;
+		site = <0xc>;
+		sn = <1>;
+	};
+	commsA: mgt400@400d0000 {
+		compatible = "D-TACQ,mgt400";
+		reg = <0x400d0000 0x10000>;						
+		interrupts = <0x0 0x38 0x0>;
+		interrupt-parent = <0x1>;
+		site = <0xd>;
+		sn = <0>;
 	};	
 };

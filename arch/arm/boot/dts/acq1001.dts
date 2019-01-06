@@ -25,7 +25,7 @@
 	chosen {
 		bootargs = "";
 		stdout-path = "serial0:115200n8";
-		build="$DATE";	
+		build="__DATE__";	
 		descr="device tree for ACQ1001, ONE SITES + SPI for ACQ480, D-AXI";
 		notes="i2c mux back at correct address 0x74";
 		model="acq1001";

@@ -22,7 +22,7 @@
 	chosen {
 		bootargs = "console=ttyPS0,115200 root=/dev/ram rw earlyprintk";
 		linux,stdout-path = "/amba@0/serial@e0001000";
-		build="$DATE";	
+		build="__DATE__";	
 		descr="device tree for ACQ2106, SIX SITES supports MGT-DRAM";
 		model="acq2106";
 		compatible_model="acq2106";		
@@ -52,23 +52,3 @@
 	};
 };
 
-
-
-&amba {		
-	commsB: mgt400@400c0000 {
-		compatible = "D-TACQ,mgt400";
-		reg = <0x400c0000 0x10000>;			
-		interrupts = <0x0 0x3a 0x0>;
-		interrupt-parent = <0x1>;
-		site = <0xc>;
-		sn = <1>;
-	};
-	commsA: mgt400@400d0000 {
-		compatible = "D-TACQ,mgt400";
-		reg = <0x400d0000 0x10000>;						
-		interrupts = <0x0 0x38 0x0>;
-		interrupt-parent = <0x1>;
-		site = <0xd>;
-		sn = <0>;
-	};
-};
