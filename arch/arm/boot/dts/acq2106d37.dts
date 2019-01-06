@@ -19,8 +19,8 @@
 		mmc0 = &sdhci0;
 	};
 	chosen {
-		bootargs = "console=ttyPS0,115200 root=/dev/ram rw earlyprintk";
-		linux,stdout-path = "/amba@0/serial@e0001000";
+		bootargs = "";
+		stdout-path = "serial0:115200n8";
 		build="__DATE__";	
 		descr="device tree for ACQ2106, SIX SITES supports MGT-DRAM, D37FP";
 		model="acq2106";
