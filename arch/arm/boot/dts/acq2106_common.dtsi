@@ -1,0 +1,218 @@
+// SPDX-License-Identifier: GPL-2.0+
+/*
+ *   Copyright (C) 2013-2019 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+/dts-v1/;
+
+
+#include "acq400_common.dtsi"
+
+
+
+&i2c0 {
+	status = "okay";
+	
+	i2c-reset = <&gpio0 46 0>;
+	i2cswitch@74 {
+		compatible = "nxp,pca9546";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x74>;
+		
+		i2c@0 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0>;
+			
+			signals: gpio@22 {
+				compatible="ti,tca6424";
+				reg=<0x22>;
+			};
+			mb: gpio@23 {
+				compatible="ti,tca6424";
+				reg=<0x23>;
+			};												
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+			
+			pwm: lp3943@60 {
+				compatible = "ti,lp3943";
+				reg = <0x60>;
+				
+				leds {
+					compatible = "ti,lp3943-gpio";
+					gpio-controller;
+					#gpio-cells = <15>;
+				};						
+				pwm {
+					compatible = "ti,lp3943-pwm";
+					#pwm-cells = <2>;													
+					ti,pwm0 = <0>; /* LED0=FAN */
+					ti,pwm1 = <15>; /* ZFAN */
+				};
+			};
+			
+			psup: isl22313@50 {
+				compatible = "isl,isl22313";
+				reg = <0x50>;
+			};
+			psun: isl22313@51 {
+				compatible = "isl,isl22313";
+				reg = <0x51>; 
+			};
+			clockslicer: si5326@68 {
+				compatible="si,si5326";
+				reg=<0x68>;
+			};
+		};
+
+		elf1: i2c@1 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x1>;
+	
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+		elf2: i2c@2 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x2>;
+		
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+		elf3: i2c@3 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x3>;
+		
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+		elf4: i2c@4 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x4>;
+		
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};	
+		elf5: i2c@5 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x5>;
+		
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+		elf6: i2c@6 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x6>;
+		
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};		
+	};
+	fans {
+		pwms = <&pwm 0 5000000 1>;
+		pwm_names = "fan";			
+	};
+};
+
+&amba {
+	sitec: acq2006sc@40000000 {
+		reg = <0x40000000 0x10000>;
+		compatible = "D-TACQ,acq2006sc";
+		site = <0x0>;
+		/* potential sc interrupt .. not assigned for now 
+		interrupts = <0x0 32 0x0>;
+		interrupt-parent = <0x1>;			
+		*/		
+	};
+	site1: acq400fmc@40010000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40010000 0x10000>;
+		interrupts = <0x0 59 0x0 0x0 58 0x0>; 
+		interrupt-parent = <&intc>;
+		site = <0x1>;
+	};
+	site2: acq400fmc@40020000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40020000 0x10000>;
+		interrupts = <0x0 57 0x0>;
+		interrupt-parent = <0x1>;
+		site = <0x2>;
+	};
+	site3: acq400fmc@40030000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40030000 0x10000>;
+		interrupts = <0x0 55 0x0>;
+		interrupt-parent = <0x1>;
+		site = <0x3>;
+	};
+	site4: acq400fmc@40040000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40040000 0x10000>;
+		interrupts = <0x0 53 0x0>; 
+		interrupt-parent = <0x1>;
+		site = <0x4>;
+	};
+	site5: acq400fmc@40050000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40050000 0x10000>;
+		interrupts = <0x0 36 0x0>;
+		interrupt-parent = <0x1>;
+		site = <0x5>;
+	};
+	site6: acq400fmc@40060000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40060000 0x10000>;
+		interrupts = <0x0 34 0x0>;
+		interrupt-parent = <0x1>;
+		site = <0x6>;
+	};	
+};
