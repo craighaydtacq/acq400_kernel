@@ -167,41 +167,13 @@
 	site1: acq400fmc@40010000 {
 		compatible = "D-TACQ,acq400fmc";
 		reg = <0x40010000 0x10000>;
-		fifo-depth = <0x8000>;
-		dma-channel = <0x0>;
-		burst-length = <0x10>;
-		interrupts = <0x0 0x3b 0x0 0x0 0x3a 0x0>; 
+		interrupts = <0x0 59 0x0 0x0 58 0x0>; 
 		interrupt-parent = <&intc>;
 		site = <0x1>;
 	};
-	axi_dma_0: axidma@801f0000 {
-		compatible = "xlnx-acq400,axi-dma";
-		reg = < 0x801f0000 0x10000 >;
-		
-		dma-channel@801f0030 {
-			compatible = "xlnx,axi-dma-s2mm-channel";
-			interrupts = < 0 54 4 >;
-			interrupt-parent = <&intc>;
-			xlnx,datawidth = <0x40>;
-			xlnx,device-id = <0x0>;
-			acq400,cyclicsg = <1>;
-		};
-	};
-	axi_dma_1: axidma@801e0000 {
-		compatible = "xlnx-acq400,axi-dma";
-		reg = < 0x801e0000 0x10000 >;
-
-		dma-channel@801e0030 {
-			compatible = "xlnx,axi-dma-s2mm-channel";
-			// WARNING: check interrupt number
-			interrupts = < 0 35 4 >;
-			interrupt-parent = <&intc>;
-			xlnx,datawidth = <0x40>;
-			xlnx,device-id = <0x1>;
-			acq400,cyclicsg = <1>;
-		};
-	};
 };
+
+#include "acq400_axi_dma.dtsi"
 
 &spi0 {
        status = "okay";

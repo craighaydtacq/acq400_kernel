@@ -1,0 +1,33 @@
+/*
+ * D-TACQ solutions ACQ400 series common defs
+ */
+ 
+ &amba {
+ 	axi_dma_0: axidma@801f0000 {
+ 		compatible = "xlnx-acq400,axi-dma";
+ 		reg = < 0x801f0000 0x10000 >;
+	 
+ 		dma-channel@801f0030 {
+ 			compatible = "xlnx,axi-dma-s2mm-channel";
+ 			interrupts = < 0 54 4 >;
+ 			interrupt-parent = <&intc>;
+ 			xlnx,datawidth = <0x40>;
+ 			xlnx,device-id = <0x0>;
+ 			acq400,cyclicsg = <1>;
+ 		};
+ 	};
+ 	axi_dma_1: axidma@801e0000 {
+ 		compatible = "xlnx-acq400,axi-dma";
+ 		reg = < 0x801e0000 0x10000 >;
+
+ 		dma-channel@801e0030 {
+ 			compatible = "xlnx,axi-dma-s2mm-channel";
+ 			// WARNING: check interrupt number
+ 			interrupts = < 0 35 4 >;
+ 			interrupt-parent = <&intc>;
+ 			xlnx,datawidth = <0x40>;
+ 			xlnx,device-id = <0x1>;
+ 			acq400,cyclicsg = <1>;
+ 		};
+ 	};
+ };
