@@ -91,3 +91,11 @@
 	 usb-phy = <&usb_phy0>;
  };
  
+ &spi0 {
+	status = "okay";
+	num-cs = <6>;
+	is-decoded-cs = <1>;
+ };
+ 
+ 
+ 
