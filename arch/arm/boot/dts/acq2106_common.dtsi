@@ -17,8 +17,8 @@
 	status = "okay";
 	
 	i2c-reset = <&gpio0 46 0>;
-	i2cswitch@74 {
-		compatible = "nxp,pca9546";
+	i2c0sw74: i2cswitch@74 {
+		compatible = "nxp,pca9548";
 		#address-cells = <1>;
 		#size-cells = <0>;
 		reg = <0x74>;
@@ -48,7 +48,7 @@
 				leds {
 					compatible = "ti,lp3943-gpio";
 					gpio-controller;
-					#gpio-cells = <15>;
+					#gpio-cells = <2>;
 				};						
 				pwm {
 					compatible = "ti,lp3943-pwm";
