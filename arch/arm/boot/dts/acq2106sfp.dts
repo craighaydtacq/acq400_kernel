@@ -29,7 +29,7 @@
 };	
 
 
-&i2c0 {
+&i2c0sw74 {
 	/* hardcoded for MGT482 octal sfp controller */
 	i2c@7 {
 		#address-cells = <1>;
