@@ -1,0 +1,27 @@
+/*
+* Copyright (C) 2013-2019 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License version 2 as
+* published by the Free Software Foundation.
+*/
+
+/dts-v1/;
+
+#include "kmcu_common.dtsi"
+
+/ {
+       #address-cells = <0x1>;
+       #size-cells = <0x1>;
+       compatible = "xlnx,zynq-7000";
+       model = "Xilinx Zynq";
+
+       chosen {
+	       bootargs = "console=ttyPS0,115200 root=/dev/ram rw earlyprintk";
+	       linux,stdout-path = "/amba@0/serial@e0001000";
+	       build="$DATE";	
+	       descr="DO NOT USE device tree for KMCU - AMC with Z7035, TWO ELF SITES, one FMC discarded eth1, adds MGT482 comms module, SPI";
+	       model="kmcu";
+	       compatible_model="kmcu";				
+       };
+};

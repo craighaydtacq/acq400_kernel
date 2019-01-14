@@ -1014,7 +1014,9 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	zynq-zybo.dtb \
 	acq1001.dtb \
 	acq1002.dtb acq1002p.dtb acq1002r.dtb \
-	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb
+	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb \
+	acq1014.dtb \
+	kmcu.dtb kmcuz30.dtb kmcuz30_bpe.dts 
 dtb-$(CONFIG_MACH_ARMADA_370) += \
 	armada-370-db.dtb \
 	armada-370-dlink-dns327l.dtb \
