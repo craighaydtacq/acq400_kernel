@@ -25,7 +25,7 @@
 };
 
 &gem0 {
-	comment = "WARNING: totally untested. What is the PHYADDR. Is it the same phy after all?"
+	comment = "WARNING: totally untested. What is the PHYADDR. Is it the same phy after all?";
 	status = "okay";
 	phy-mode = "rgmii-id";
 	phy-handle = <&ethernet_phy>;
