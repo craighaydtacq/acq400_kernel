@@ -14,12 +14,6 @@
 	model = "D-TACQ ACQ1002 DAQ Appliance";
 	compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
 
-	aliases {
-		ethernet0 = &gem0;
-		serial0 = &uart1;		
-		mmc0 = &sdhci0;
-	};
-
 
 
 	chosen {
