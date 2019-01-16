@@ -226,8 +226,7 @@ static void cdns_spi_chipselect(struct spi_device *spi, bool is_high)
 				     CDNS_SPI_SS_SHIFT) &
 				     CDNS_SPI_CR_SSCTRL;
 		else
-			ctrl_reg |= (spi->chip_select << CDNS_SPI_SS_SHIFT) &
-				     CDNS_SPI_CR_SSCTRL;
+			ctrl_reg |= (cs << CDNS_SPI_SS_SHIFT) & CDNS_SPI_CR_SSCTRL;
 	}
 
 	cdns_spi_write(xspi, CDNS_SPI_CR, ctrl_reg);
