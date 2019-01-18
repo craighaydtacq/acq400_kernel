@@ -14,12 +14,11 @@
 
 
 
-
 &amba {
 	sitec: acq2006sc@40000000 {
 		reg = <0x40000000 0x10000>;
 		compatible = "D-TACQ,acq2006sc";
-		site = <0x0>;
+		site = <0>;
 		/* potential sc interrupt .. not assigned for now 
 		interrupts = <0x0 32 0x0>;
 		interrupt-parent = <0x1>;			
@@ -30,49 +29,49 @@
 		reg = <0x40010000 0x10000>;
 		interrupts = <0x0 59 0x0 0x0 58 0x0>; 
 		interrupt-parent = <&intc>;
-		site = <0x1>;
+		site = <0>;
 	};
 	site2: acq400fmc@40020000 {
 		compatible = "D-TACQ,acq400fmc";
 		reg = <0x40020000 0x10000>;
 		interrupts = <0x0 57 0x0>;
 		interrupt-parent = <0x1>;
-		site = <0x2>;
+		site = <2>;
 	};
 	site3: acq400fmc@40030000 {
 		compatible = "D-TACQ,acq400fmc";
 		reg = <0x40030000 0x10000>;
 		interrupts = <0x0 55 0x0>;
 		interrupt-parent = <0x1>;
-		site = <0x3>;
+		site = <3>;
 	};
 	site4: acq400fmc@40040000 {
 		compatible = "D-TACQ,acq400fmc";
 		reg = <0x40040000 0x10000>;
 		interrupts = <0x0 53 0x0>; 
 		interrupt-parent = <0x1>;
-		site = <0x4>;
+		site = <4>;
 	};
 	site5: acq400fmc@40050000 {
 		compatible = "D-TACQ,acq400fmc";
 		reg = <0x40050000 0x10000>;
 		interrupts = <0x0 36 0x0>;
 		interrupt-parent = <0x1>;
-		site = <0x5>;
+		site = <5>;
 	};
 	site6: acq400fmc@40060000 {
 		compatible = "D-TACQ,acq400fmc";
 		reg = <0x40060000 0x10000>;
 		interrupts = <0x0 34 0x0>;
 		interrupt-parent = <0x1>;
-		site = <0x6>;
+		site = <6>;
 	};
 	commsB: mgt400@400c0000 {
 		compatible = "D-TACQ,mgt400";
 		reg = <0x400c0000 0x10000>;			
 		interrupts = <0x0 0x3a 0x0>;
 		interrupt-parent = <0x1>;
-		site = <0xc>;
+		site = <12>;
 		sn = <1>;
 	};
 	commsA: mgt400@400d0000 {
@@ -80,7 +79,7 @@
 		reg = <0x400d0000 0x10000>;						
 		interrupts = <0x0 0x38 0x0>;
 		interrupt-parent = <0x1>;
-		site = <0xd>;
+		site = <13>;
 		sn = <0>;
 	};	
 };

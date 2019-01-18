@@ -1,0 +1,125 @@
+/*
+* Copyright (C) 2013-2019 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License version 2 as
+* published by the Free Software Foundation.
+*/
+
+/dts-v1/;
+#include "acq400_common.dtsi"
+#include "acq2106_i2c.dtsi"
+
+/ {
+       model = "D-TACQ ACQ2106 DAQ Appliance";
+       compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
+
+       chosen {
+	       bootargs = "";
+	       stdout-path = "serial0:115200n8";
+	       build="__DATE__";	
+	       descr="device tree for ACQ2106, 12 - SIX SPLIT - SITES";
+	       model="acq210612";
+	       compatible_model="acq2106";		
+       };
+};	
+
+&amba {
+	sitec: acq2006sc@40000000 {
+		reg = <0x40000000 0x10000>;
+		compatible = "D-TACQ,acq2006sc";
+		site = <0x0>;
+		/* potential sc interrupt .. not assigned for now 
+		interrupts = <0x0 32 0x0>;
+		interrupt-parent = <0x1>;			
+		*/		
+	};
+	site1: acq400fmc@40010000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40010000 0x8000>;
+		interrupts = <0x0 59 0x0 0x0 58 0x0>; 
+		interrupt-parent = <&intc>;
+		site = <0x1>;
+	};
+	site101: acq400fmc@40018000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40018000 0x8000>;
+		site = <101>;
+	};
+	site2: acq400fmc@40020000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40020000 0x8000>;
+		interrupts = <0x0 57 0x0>;
+		interrupt-parent = <0x1>;
+		site = <2>;
+	};
+	site102: acq400fmc@40028000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40028000 0x8000>;		
+		site = <102>;
+	};	
+	site3: acq400fmc@40030000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40030000 0x8000>;
+		interrupts = <0x0 55 0x0>;
+		interrupt-parent = <0x1>;
+		site = <3>;
+	};
+	site103: acq400fmc@40038000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40038000 0x8000>;
+		site = <103>;
+	};	
+	site4: acq400fmc@40040000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40040000 0x8000>;
+		interrupts = <0x0 53 0x0>; 
+		interrupt-parent = <0x1>;
+		site = <4>;
+	};
+	site104: acq400fmc@40048000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40048000 0x8000>;
+		site = <104>;
+	};	
+	site5: acq400fmc@40050000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40050000 0x8000>;
+		interrupts = <0x0 36 0x0>;
+		interrupt-parent = <0x1>;
+		site = <5>;
+	};
+	site105: acq400fmc@40058000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40058000 0x8000>;
+		site = <105>;
+	};	
+	site6: acq400fmc@40060000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40060000 0x8000>;
+		interrupts = <0x0 34 0x0>;
+		interrupt-parent = <0x1>;
+		site = <6>;
+	};
+	site106: acq400fmc@40068000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40060000 0x8000>;
+		site = <106>;
+	};	
+	commsB: mgt400@400c0000 {
+		compatible = "D-TACQ,mgt400";
+		reg = <0x400c0000 0x10000>;			
+		interrupts = <0x0 0x3a 0x0>;
+		interrupt-parent = <0x1>;
+		site = <12>;
+		sn = <1>;
+	};
+	commsA: mgt400@400d0000 {
+		compatible = "D-TACQ,mgt400";
+		reg = <0x400d0000 0x10000>;						
+		interrupts = <0x0 0x38 0x0>;
+		interrupt-parent = <0x1>;
+		site = <13>;
+		sn = <0>;
+	};	
+};
