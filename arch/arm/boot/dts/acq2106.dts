@@ -24,7 +24,7 @@
 };	
 
 
-&i2c0 {
+&i2c0sw74 {
 	/* MGT site. Valid MGT-DRAM. Use acq2106sfp.dts for MGT482 */
 	i2c@7 {
 		#address-cells = <1>;
