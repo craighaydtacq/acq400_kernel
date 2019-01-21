@@ -9,7 +9,7 @@
 /dts-v1/;
 
 #include "acq400_common.dtsi"
-
+#include "acq2006_common.dtsi"
 / {
 	model = "D-TACQ ACQ1001 DAQ Appliance";
 	compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
@@ -78,22 +78,6 @@
 		};
 	};
 };
-
-&amba {
-	sitec: acq2006sc@40000000 {
-		reg = <0x40000000 0x10000>;
-		compatible = "D-TACQ,acq1001sc";
-		site = <0x0>;
-	};
-	site1: acq400fmc@40010000 {
-		compatible = "D-TACQ,acq400fmc";
-		reg = <0x40010000 0x10000>;
-		interrupts = <0x0 59 0x0 0x0 58 0x0>; 
-		interrupt-parent = <&intc>;
-		site = <0x1>;
-	};
-};
-
 
 
 
