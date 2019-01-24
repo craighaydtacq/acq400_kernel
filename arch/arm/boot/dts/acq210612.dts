@@ -39,7 +39,7 @@
 		reg = <0x40010000 0x8000>;
 		interrupts = <0x0 59 0x4 0x0 58 0x4>; 
 		interrupt-parent = <&intc>;
-		site = <0x1>;
+		site = <1>;
 	};
 	site101: acq400fmc@40018000 {
 		compatible = "D-TACQ,acq400fmc";
