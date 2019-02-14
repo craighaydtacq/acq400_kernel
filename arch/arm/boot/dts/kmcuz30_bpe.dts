@@ -22,17 +22,25 @@
 	       model="kmcuz30";
 	       compatible_model="kmcuz30";				
        };
+	aliases {
+		ethernet1 = &gem1;
+	};
 };
 
-&gem0 {
+&gem1 {
 	comment = "WARNING: totally untested. What is the PHYADDR. Is it the same phy after all?";
 	status = "okay";
-	phy-mode = "rgmii-id";
-	phy-handle = <&ethernet_phy>;
-
-	ethernet_phy: ethernet-phy@0 {
+	phy-mode = "rgmii-id"; 
+	/*
+	phy-mode = "sgmii";	
+	phy-reset-gpio = <&gpio0 47 0>;
+	phy-reset-active-low = <1>;
+	phy-reset-duration = <1>;
+	*/
+	phy-handle = <&bp_ethernet_phy>;
+	bp_ethernet_phy: ethernet-phy@1 {
 		reg = <1>;
 		device_type = "ethernet-phy";
-	};
+	};	
 };
 
