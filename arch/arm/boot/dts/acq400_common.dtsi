@@ -110,5 +110,8 @@
 	is-decoded-cs = <1>;
  };
  
- 
+ &watchdog0 {
+	 reset-on-timeout = <1>;
+	 timeout-sec = <10>;
+ };
  
