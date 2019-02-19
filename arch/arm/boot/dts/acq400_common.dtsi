@@ -112,6 +112,6 @@
  
  &watchdog0 {
 	 reset-on-timeout = <1>;
-	 timeout-sec = <10>;
+	 timeout-sec = <20>;
  };
  
