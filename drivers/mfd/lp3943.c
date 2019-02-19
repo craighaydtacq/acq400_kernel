@@ -105,10 +105,12 @@ static const struct regmap_config lp3943_regmap_config = {
 	.max_register = LP3943_MAX_REGISTERS,
 };
 
+
 static int lp3943_probe(struct i2c_client *cl, const struct i2c_device_id *id)
 {
 	struct lp3943 *lp3943;
 	struct device *dev = &cl->dev;
+	static int devnum;
 
 	lp3943 = devm_kzalloc(dev, sizeof(*lp3943), GFP_KERNEL);
 	if (!lp3943)
@@ -123,7 +125,7 @@ static int lp3943_probe(struct i2c_client *cl, const struct i2c_device_id *id)
 	lp3943->mux_cfg = lp3943_mux_cfg;
 	i2c_set_clientdata(cl, lp3943);
 
-	return devm_mfd_add_devices(dev, -1, lp3943_devs,
+	return devm_mfd_add_devices(dev, devnum++, lp3943_devs,
 				    ARRAY_SIZE(lp3943_devs),
 				    NULL, 0, NULL);
 }
