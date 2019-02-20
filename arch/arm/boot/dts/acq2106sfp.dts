@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+ * Copyright (C) 2013-2019 D-TACQ Solutions Ltd - http://www.d-tacq.com/
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -8,6 +8,7 @@
 
 /dts-v1/;
 #include "acq2106_common.dtsi"
+#include "mgt482.dtsi"
 
 / {
 	model = "D-TACQ ACQ2106 DAQ Appliance";
@@ -22,7 +23,5 @@
 		compatible_model="acq2106";		
 	};
 };	
-
-#include "mgt482.dtsi"
 
 

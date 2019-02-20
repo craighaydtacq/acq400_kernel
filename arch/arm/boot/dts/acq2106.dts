@@ -8,6 +8,7 @@
 
 /dts-v1/;
 #include "acq2106_common.dtsi"
+#include "mgt.dtsi"
 
 / {
 	model = "D-TACQ ACQ2106 DAQ Appliance";
@@ -24,25 +25,4 @@
 };	
 
 
-&i2c0sw74 {
-	/* MGT site. Valid MGT-DRAM. Use acq2106sfp.dts for MGT482 */
-	i2c@7 {
-		#address-cells = <1>;
-		#size-cells = <0>;
-		reg = <0x7>;
-		
-		eeprom@50 {
-			compatible = "at,24c64";
-			reg = <0x50>;
-		};
-		hwmon@28 {
-			compatible="ad,ad7417";
-			reg=<0x28>;
-		};
-		flashprog: gpio@20 {
-			compatible="ti,tca6408";
-			reg=<0x20>;
-		};						
-	};
-};
 
