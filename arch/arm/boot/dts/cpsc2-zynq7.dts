@@ -8,6 +8,9 @@
 	aliases {
 		ethernet0 = &gem0;
 		serial0 = &uart1;
+		i2c0 = &i2c0;
+		i2c10 = &i2c10;
+		i2c11 = &i2c11;
 	};
 
 	memory {
@@ -25,6 +28,67 @@
 		#phy-cells = <0>;
 		reset-gpios = <&gpio0 7 1>; /* MIO 7, GPIO_ACTIVE_LOW */
 	};
+	
+	
+	/* Backplane i2c monitors WORKTODO.  */
+	/* the gpio numbers will CERTAINLY need to update, maybe other items check i2c-gpio.txt */
+		
+	i2c10: i2c-gpioA {
+		status = "okay";
+		compatible = "i2c-gpio";
+		/* FIXME: WHAT ARE THE GPIOS */
+		gpios = <&gpio0 3 0 /* sda */
+			 &gpio0 2 0 /* scl */
+			 >;
+		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		ps_status1: gpio@20 {
+			compatible="nxp,pcf8574";
+			reg=<0x20>;
+		};
+		ps_status2: gpio@21 {
+			compatible="nxp,pcf8574";
+			reg=<0x21>;
+		};
+		ps_status3: gpio@22 {
+			compatible="nxp,pcf8574";
+			reg=<0x22>;
+		};
+		ps_status4: gpio@23 {
+			compatible="nxp,pcf8574";
+			reg=<0x23>;
+		};
+	};
+	i2c11: i2c-gpioB {
+		status = "okay";
+		compatible = "i2c-gpio";
+		/* FIXME: WHAT ARE THE GPIOS */
+		gpios = <&gpio0 5 0 /* sda */
+			 &gpio0 4 0 /* scl */
+			 >;
+		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		ps_status5: gpio@20 {
+			compatible="nxp,pcf8574";
+			reg=<0x20>;
+		};
+		ps_status6: gpio@21 {
+			compatible="nxp,pcf8574";
+			reg=<0x21>;
+		};
+		ps_status7: gpio@22 {
+			compatible="nxp,pcf8574";
+			reg=<0x22>;
+		};
+		ps_status8: gpio@23 {
+			compatible="nxp,pcf8574";
+			reg=<0x23>;
+		};
+	};	
 };
 
 &gem0 {
@@ -187,64 +251,6 @@
 	};
 };
 
-/* Backplane i2c monitors WORKTODO.  */
-/* the gpio numbers will CERTAINLY need to update, maybe other items check i2c-gpio.txt */
-&gpio0 {
-	i2c-gpioA {
-		compatible = "i2c-gpio";
-		/* FIXME: WHAT ARE THE GPIOS */
-		gpios = <&gpio0 3 0 /* sda */
-			 &gpio0 2 0 /* scl */
-			 >;
-		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		ps_status1: gpio@20 {
-			compatible="nxp,pcf8574";
-			reg=<0x20>;
-		};
-		ps_status2: gpio@21 {
-			compatible="nxp,pcf8574";
-			reg=<0x21>;
-		};
-		ps_status3: gpio@22 {
-			compatible="nxp,pcf8574";
-			reg=<0x22>;
-		};
-		ps_status4: gpio@23 {
-			compatible="nxp,pcf8574";
-			reg=<0x23>;
-		};
-	};
-	i2c-gpioB {
-		compatible = "i2c-gpio";
-		/* FIXME: WHAT ARE THE GPIOS */
-		gpios = <&gpio0 5 0 /* sda */
-			 &gpio0 4 0 /* scl */
-			 >;
-		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
-		#address-cells = <1>;
-		#size-cells = <0>;
-
-		ps_status5: gpio@20 {
-			compatible="nxp,pcf8574";
-			reg=<0x20>;
-		};
-		ps_status6: gpio@21 {
-			compatible="nxp,pcf8574";
-			reg=<0x21>;
-		};
-		ps_status7: gpio@22 {
-			compatible="nxp,pcf8574";
-			reg=<0x22>;
-		};
-		ps_status8: gpio@23 {
-			compatible="nxp,pcf8574";
-			reg=<0x23>;
-		};
-	};
-};
 
 
 &qspi {
