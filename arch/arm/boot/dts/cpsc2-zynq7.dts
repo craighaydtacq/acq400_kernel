@@ -63,7 +63,7 @@
 		status = "okay";
 		compatible = "i2c-gpio";
 		gpios = <&gpio0 57 0   /* SDA Bank2 EMIO 3 */
-			 &gpio0 55 0>; /* SCL Bank2 EMIO 2 */
+			 &gpio0 56 0>; /* SCL Bank2 EMIO 2 */
 		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
 		#address-cells = <1>;
 		#size-cells = <0>;
