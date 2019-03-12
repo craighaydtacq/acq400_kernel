@@ -35,11 +35,9 @@
 		
 	i2c10: i2c-gpioA {
 		status = "okay";
-		compatible = "i2c-gpio";
-		/* FIXME: WHAT ARE THE GPIOS */
-		gpios = <&gpio0 3 0 /* sda */
-			 &gpio0 2 0 /* scl */
-			 >;
+		compatible = "i2c-gpio";		
+		gpios = <&gpio0 55 0   /* SDA Bank2 EMIO 1 */
+			 &gpio0 54 0>; /* SCL Bank2 EMIO 0 */
 		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -64,10 +62,8 @@
 	i2c11: i2c-gpioB {
 		status = "okay";
 		compatible = "i2c-gpio";
-		/* FIXME: WHAT ARE THE GPIOS */
-		gpios = <&gpio0 5 0 /* sda */
-			 &gpio0 4 0 /* scl */
-			 >;
+		gpios = <&gpio0 57 0   /* SDA Bank2 EMIO 3 */
+			 &gpio0 55 0>; /* SCL Bank2 EMIO 2 */
 		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
 		#address-cells = <1>;
 		#size-cells = <0>;
