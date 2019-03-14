@@ -1012,7 +1012,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	zynq-zc770-xm013.dtb \
 	zynq-zed.dtb \
 	zynq-zybo.dtb \
-	picozed-zynq7.dtb cpsc2-zynq7.dtb \
+	picozed-zynq7.dtb cpsc2-zynq7.dtb cpsc2-overlay.dtb \
 	acq1001.dtb \
 	acq1002.dtb acq1002p.dtb acq1002r.dtb \
 	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb acq2106d37sfp.dtb acq210612.dtb \

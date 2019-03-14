@@ -29,17 +29,14 @@
 		reset-gpios = <&gpio0 7 1>; /* MIO 7, GPIO_ACTIVE_LOW */
 	};
 	
-	
-	/* Backplane i2c monitors WORKTODO.  */
-	/* the gpio numbers will CERTAINLY need to update, maybe other items check i2c-gpio.txt */
-		
+
+	/* BP i2c. load disabled, bring up overlay AFTER FPGA load when EMIO up
+           MUST be i2c-gpio,scl-output-only
+	*/	
 	i2c10: i2c-gpioA {
 		status = "disabled";
-//		status = "okay";
 		compatible = "i2c-gpio";
 		i2c-gpio,scl-output-only;
-//		i2c-gpio,sda-open-drain;
-//		i2c-gpio,scl-open-drain;
 
 		gpios = <&gpio0 55 0   /* SDA Bank2 EMIO 1 */
 			 &gpio0 54 0>; /* SCL Bank2 EMIO 0 */
@@ -67,13 +64,9 @@
 	};
 	i2c11: i2c-gpioB {
 		status = "disabled";
-//		status = "okay";
 		compatible = "i2c-gpio";
 		i2c-gpio,scl-output-only;
-//		i2c-gpio,sda-open-drain;
-//		i2c-gpio,scl-open-drain;
-		
-		compatible = "i2c-gpio";
+
 		gpios = <&gpio0 57 0   /* SDA Bank2 EMIO 3 */
 			 &gpio0 56 0>; /* SCL Bank2 EMIO 2 */
 		i2c-gpio,delay-us = <2>;        /* ~100 kHz */
