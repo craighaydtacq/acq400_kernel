@@ -60,7 +60,10 @@
 			compatible="nxp,pcf8574";
 			reg=<0x23>;
 		};
-
+		canary1: gpio@66 {
+			compatible="nxp,pcf8574";
+			reg=<0x66>;			
+		};
 	};
 	i2c11: i2c-gpioB {
 		status = "disabled";
@@ -89,6 +92,10 @@
 			compatible="nxp,pcf8574";
 			reg=<0x23>;
 		};
+		canary2: gpio@66 {
+			compatible="nxp,pcf8574";
+			reg=<0x66>;			
+		};		
 	};	
 };
 
