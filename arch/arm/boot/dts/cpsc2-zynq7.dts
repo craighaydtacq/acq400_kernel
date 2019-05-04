@@ -160,8 +160,8 @@
 			reg = <0x1>;
 
 			hwmon@48 {
-				compatible="ad,ad7417";
-				reg=<0x28>;
+				compatible="adt7410";
+				reg=<0x48>;
 			};			
 			eeprom@50 {
 				compatible = "at,24c64";
@@ -175,8 +175,8 @@
 			reg = <0x2>;
 
 			hwmon@48 {
-				compatible="ad,ad7417";
-				reg=<0x28>;
+				compatible="adt7410";
+				reg=<0x48>;
 			};			
 			eeprom@50 {
 				compatible = "at,24c64";
