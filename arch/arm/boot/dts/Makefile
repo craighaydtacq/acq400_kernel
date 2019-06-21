@@ -1016,6 +1016,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq1001.dtb \
 	acq1002.dtb acq1002p.dtb acq1002r.dtb \
 	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb acq2106d37sfp.dtb acq210612.dtb \
+	acq2106_1000X_overlay.dtb \
 	acq1014.dtb \
 	kmcu.dtb kmcuz30.dtb kmcuz30_bpe.dtb \
 	acq2006.dtb acq2006b.dtb acq2006bEU.dtb
