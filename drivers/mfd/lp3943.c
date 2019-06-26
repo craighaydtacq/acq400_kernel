@@ -87,6 +87,17 @@ int lp3943_read_byte(struct lp3943 *lp3943, u8 reg, u8 *read)
 }
 EXPORT_SYMBOL_GPL(lp3943_read_byte);
 
+int lp3943_probe_hw(struct lp3943 *lp3943)
+{
+	u8 readx;
+	int ret;
+
+	ret = lp3943_read_byte(lp3943, 0, &readx);
+	if (ret < 0){
+		dev_err(lp3943->dev, "device probe fail");
+	}
+	return ret;
+}
 int lp3943_write_byte(struct lp3943 *lp3943, u8 reg, u8 data)
 {
 	return regmap_write(lp3943->regmap, reg, data);
@@ -125,9 +136,14 @@ static int lp3943_probe(struct i2c_client *cl, const struct i2c_device_id *id)
 	lp3943->mux_cfg = lp3943_mux_cfg;
 	i2c_set_clientdata(cl, lp3943);
 
-	return devm_mfd_add_devices(dev, devnum++, lp3943_devs,
+	if (lp3943_probe_hw(lp3943) < 0){
+		devm_kfree(lp3943->dev, lp3943);
+		return -ENODEV;
+	}else{
+		return devm_mfd_add_devices(dev, devnum++, lp3943_devs,
 				    ARRAY_SIZE(lp3943_devs),
 				    NULL, 0, NULL);
+	}
 }
 
 static const struct i2c_device_id lp3943_ids[] = {
