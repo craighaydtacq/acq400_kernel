@@ -19,7 +19,7 @@
 		stdout-path = "serial0:115200n8";
 		build="__DATE__";	
 		descr="device tree for ACQ2106, SIX SITES supports MGT-DRAM, D37FP";
-		model="acq2106";
+		model="acq2106d37";
 		compatible_model="acq2106";		
 	};
 };
