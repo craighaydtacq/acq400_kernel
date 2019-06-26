@@ -24,9 +24,9 @@
        };
 };
 
-
+/* obsoleted
 &fpD37leds {
 	status = "okay";
 };
-
+*/
 

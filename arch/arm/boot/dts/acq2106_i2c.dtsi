@@ -42,17 +42,36 @@
 					ti,pwm1 = <15>; /* ZFAN */
 				};
 			};
-			fpD37leds: lp3943@61 {
-				status = "disabled";
+			/* d37 || new_fpleds */
+			fpleds1: lp3943@61 {
+				status = "okay";
 				compatible = "ti,lp3943";
 				reg = <0x61>;
 				leds {
 					compatible = "ti,lp3943-gpio";
 					gpio-controller;
 					#gpio-cells = <16>;
-				};						
+				};
+				pwm {
+					compatible = "ti,lp3943-pwm";
+					#pwm-cells = <0>;													
+				};				
 			};
-			
+			/* !d37 && new_fpleds */
+			fpleds2: lp3943@62 {
+				status = "okay";
+				compatible = "ti,lp3943";
+				reg = <0x62>;
+				leds {
+					compatible = "ti,lp3943-gpio";
+					gpio-controller;
+					#gpio-cells = <16>;
+				};
+				pwm {
+					compatible = "ti,lp3943-pwm";
+					#pwm-cells = <0>;													
+				};				
+			};			
 			psup: isl22313@50 {
 				compatible = "isl,isl22313";
 				reg = <0x50>;
