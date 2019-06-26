@@ -246,8 +246,10 @@ static int lp3943_pwm_parse_dt(struct device *dev,
 		count++;
 	}
 
-	if (count == 0)
-		return -ENODATA;
+	if (count == 0){
+		devm_kfree(dev, pdata);
+		return -ENODEV;
+	}
 
 	lp3943_pwm->pdata = pdata;
 	return 0;
