@@ -122,6 +122,7 @@
 		 reg = <0x80000000 0x00040000>;
 		 compatible = "D-TACQ,acq400dsp";
 		 site = <14>;
+		 name = "dsp1";
 		 /* potential sc interrupt .. Doxygen 62-32 = 30 */
 		 interrupts = <0x0 30 0x4>;
 		 interrupt-parent = <0x1>;				
@@ -131,6 +132,7 @@
 		 reg = <0x80040000 0x00040000>;
 		 compatible = "D-TACQ,acq400dsp";
 		 site = <15>;
+		 name = "dsp2";
 		 /* potential sc interrupt .. Doxygen 61-32 = 29 */
 		 interrupts = <0x0 29 0x4>;
 		 interrupt-parent = <0x1>;				
