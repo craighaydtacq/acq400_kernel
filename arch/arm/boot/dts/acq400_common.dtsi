@@ -116,3 +116,25 @@
 	 timeout-sec = <20>;
  };
  
+ &amba {
+	 dsp1: dsp1@80000000 {
+		 status = "disabled";
+		 reg = <0x80000000 0x00040000>;
+		 compatible = "D-TACQ,acq400dsp";
+		 site = <14>;
+		 /* potential sc interrupt .. this is a SWAG */
+		 interrupts = <0x0 32 0x4>;
+		 interrupt-parent = <0x1>;				
+	 };
+	 dsp2: dsp2@80040000 {
+		 status = "disabled";
+		 reg = <0x80040000 0x00040000>;
+		 compatible = "D-TACQ,acq400dsp";
+		 site = <15>;
+		 /* potential sc interrupt .. this is a SWAG */
+		 interrupts = <0x0 30 0x4>;
+		 interrupt-parent = <0x1>;				
+	 };	 
+ };
+
+ 
