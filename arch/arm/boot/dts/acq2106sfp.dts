@@ -22,6 +22,11 @@
 		model="acq2106sfp";
 		compatible_model="acq2106";		
 	};
-};	
+};
+
+&uart0 {
+	 u-boot,dm-pre-reloc;
+	 status = "okay";
+};
 
 
