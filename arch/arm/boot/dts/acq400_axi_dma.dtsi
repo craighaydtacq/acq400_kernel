@@ -6,6 +6,7 @@
  	axi_dma_0: axidma@801f0000 {
  		compatible = "xlnx-acq400,axi-dma";
  		reg = < 0x801f0000 0x10000 >;
+		xlnx,include-sg = <1>;
 	 
  		dma-channel@801f0030 {
  			compatible = "xlnx,axi-dma-s2mm-channel";
@@ -19,6 +20,7 @@
  	axi_dma_1: axidma@801e0000 {
  		compatible = "xlnx-acq400,axi-dma";
  		reg = < 0x801e0000 0x10000 >;
+		xlnx,include-sg = <1>;
 
  		dma-channel@801e0030 {
  			compatible = "xlnx,axi-dma-s2mm-channel";
