@@ -11,11 +11,9 @@
 	sitec: acq2006sc@40000000 {
 		reg = <0x40000000 0x10000>;
 		compatible = "D-TACQ,acq2006sc";
-		site = <0>;
-		/* potential sc interrupt .. not assigned for now 
-		interrupts = <0x0 32 0x4>;
-		interrupt-parent = <0x1>;			
-		*/		
+		site = <0>;		
+		interrupts = <0x0 32 0x4>, <0x0 33 0x4>;
+		interrupt-parent = <0x1>;					
 	};
 	site1: acq400fmc@40010000 {
 		compatible = "D-TACQ,acq400fmc";
