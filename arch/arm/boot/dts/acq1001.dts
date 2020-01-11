@@ -30,6 +30,7 @@
 
 &i2c0 {
 	status = "okay";
+	clock-frequency = <400000>;
 	
 	i2c-reset = <&gpio0 46 0>;
 	i2cswitch@74 {
