@@ -16,6 +16,8 @@
 		flashprog: gpio@20 {
 			compatible="ti,tca6408";
 			reg=<0x20>;
+			vcc-supply = <&regulator_vccpint>;
+			interrupts = <0 0>;
 		};
 	};
 };
