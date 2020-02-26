@@ -1,4 +1,5 @@
 #!/bin/bash
+args=${*:-uImage modules}
 export CROSS_COMPILE=arm-linux-gnueabihf-
 export INSTALL_MOD_PATH=../ROOTFS/modules
-make -j4 ARCH=arm UIMAGE_LOADADDR=0x8000 $*
+make -j4 ARCH=arm UIMAGE_LOADADDR=0x8000 $args
