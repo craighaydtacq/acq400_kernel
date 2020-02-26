@@ -48,6 +48,15 @@ static int rx_timeout = 10;
 module_param(rx_timeout, uint, 0444);
 MODULE_PARM_DESC(rx_timeout, "Rx timeout, 1-255");
 
+int max_dev = 2;
+uint isr_status[2];
+module_param_array(isr_status, uint, &max_dev, 0444);
+
+uint kill_switch_mask[2];
+module_param_array(kill_switch_mask, uint, &max_dev, 0644);
+
+
+
 /* Register offsets for the UART. */
 #define CDNS_UART_CR		0x00  /* Control Register */
 #define CDNS_UART_MR		0x04  /* Mode Register */
@@ -356,6 +365,7 @@ static void cdns_uart_handle_tx(void *dev_id)
 static irqreturn_t cdns_uart_isr(int irq, void *dev_id)
 {
 	struct uart_port *port = (struct uart_port *)dev_id;
+	struct cdns_uart *cdns_uart = port->private_data;
 	unsigned int isrstatus;
 
 	spin_lock(&port->lock);
@@ -365,6 +375,11 @@ static irqreturn_t cdns_uart_isr(int irq, void *dev_id)
 	 */
 	isrstatus = readl(port->membase + CDNS_UART_ISR);
 	writel(isrstatus, port->membase + CDNS_UART_ISR);
+
+	isr_status[cdns_uart->id & 1] = isrstatus;
+	if (kill_switch_mask[cdns_uart->id & 1]){
+		writel(kill_switch_mask[cdns_uart->id & 1], port->membase + CDNS_UART_IDR);
+	}
 
 	if (isrstatus & CDNS_UART_IXR_TXEMPTY) {
 		cdns_uart_handle_tx(dev_id);
