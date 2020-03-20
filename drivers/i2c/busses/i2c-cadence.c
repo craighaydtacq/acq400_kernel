@@ -785,6 +785,33 @@ static int __maybe_unused cdns_i2c_resume(struct device *_dev)
 static SIMPLE_DEV_PM_OPS(cdns_i2c_dev_pm_ops, cdns_i2c_suspend,
 			 cdns_i2c_resume);
 
+
+
+
+static ssize_t store_pm(
+	struct device * dev,
+	struct device_attribute *attr,
+	const char * buf,
+	size_t count)
+{
+	if (strncmp(buf, "suspend", strlen("suspend")) == 0){
+		cdns_i2c_suspend(dev);
+	}else if (strncmp(buf, "resume", strlen("resume")) == 0){
+		cdns_i2c_resume(dev);
+	}else{
+		dev_warn(dev, "store_pm error \"%s\"", buf);
+		return -1;
+	}
+
+	return count;
+}
+
+static DEVICE_ATTR(pm, S_IWUSR, 0, store_pm);
+
+static const struct attribute *cdns_i2c_attr[] = {
+	&dev_attr_pm.attr,
+	NULL
+};
 /**
  * cdns_i2c_probe - Platform registration call
  * @pdev:	Handle to the platform device structure
@@ -870,6 +897,9 @@ static int cdns_i2c_probe(struct platform_device *pdev)
 	dev_info(&pdev->dev, "%u kHz mmio %08lx irq %d\n",
 		 id->i2c_clk / 1000, (unsigned long)r_mem->start, id->irq);
 
+	if (sysfs_create_files(&pdev->dev.kobj, cdns_i2c_attr)){
+		dev_err(&pdev->dev, "failed to create sysfs");
+	}
 	return 0;
 
 err_clk_dis:
