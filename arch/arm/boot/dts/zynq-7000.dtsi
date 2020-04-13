@@ -418,6 +418,7 @@
 			interrupts = <0 9 1>;
 			reg = <0xf8005000 0x1000>;
 			timeout-sec = <10>;
+			reset-on-timeout;
 		};
 	};
 };
