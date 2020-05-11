@@ -32,6 +32,15 @@
 		    spi1 = &spi0;
 		    spi2 = &spi1;
 	  };
+	 
+	 vcc: fixedregulator-v3_3 {
+		 compatible = "regulator-fixed";
+		 regulator-name = "vcc";
+		 regulator-min-microvolt = <3300000>;
+		 regulator-max-microvolt = <3300000>;
+		 regulator-always-on;
+		 enable-active-high;
+	 };
  };
  
  
