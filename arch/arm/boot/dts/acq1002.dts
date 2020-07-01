@@ -24,6 +24,14 @@
 		compatible_model="acq100?";		
 	};
 
+
+	pps {
+		gpios = <&gpio0 57 0>;
+		
+		compatible = "pps-gpio";
+		status = "okay";	
+	};
+		
 };
 
 &i2c0 {
@@ -111,6 +119,9 @@
 		};		
 	};
 };
+
+
+
 
 &amba {
 	sitec: acq2006sc@40000000 {
