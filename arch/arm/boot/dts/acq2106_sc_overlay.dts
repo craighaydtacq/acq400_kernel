@@ -1,0 +1,70 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	fragment@0 {
+		target = <&elf1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};
+		};
+	};
+	fragment@1 {
+		target = <&elf2>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};
+		};
+	};
+	fragment@2 {
+		target = <&elf3>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};
+		};
+	};
+	fragment@3 {
+		target = <&elf4>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};
+		};
+	};
+	fragment@4 {
+		target = <&elf5>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};
+		};
+	};
+	fragment@5 {
+		target = <&elf6>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};
+		};
+	};	
+};
