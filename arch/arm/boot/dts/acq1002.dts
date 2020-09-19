@@ -26,6 +26,7 @@
 
 
 	pps {
+		/* TRG.d3 on ptype */
 		gpios = <&gpio0 57 0>;
 		
 		compatible = "pps-gpio";

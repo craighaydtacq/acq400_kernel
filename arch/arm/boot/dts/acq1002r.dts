@@ -25,7 +25,21 @@
 		model="acq1002";
 		compatible_model="acq100?";		
 	};
-
+	
+	pps {
+		/* TRG.d5 on ptype */
+		gpios = <&gpio0 59 0>;
+		
+		compatible = "pps-gpio";
+		status = "okay";	
+	};
+	pps1 {
+		/* TRG.d6 on ptype ... we're not sure which one it will be */
+		gpios = <&gpio0 60 0>;
+	
+		compatible = "pps-gpio";
+		status = "disabled";	
+	};
 };
 
 &i2c0 {
