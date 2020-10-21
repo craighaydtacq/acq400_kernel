@@ -4,7 +4,21 @@
 	fragment@0 {
 		target = <&celf>;
 		__overlay__ {
-			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+						
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};							
+			hwmon@29 {
+				compatible="ad,ad7417";
+				reg=<0x29>;
+			};					
+			leds2: gpio@20 {
+				compatible="nxp,tca6408";
+				reg=<0x20>;				
+			};
 		};
 	};
 };
