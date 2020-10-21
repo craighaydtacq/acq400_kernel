@@ -1014,7 +1014,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	zynq-zybo.dtb \
 	picozed-zynq7.dtb cpsc2-zynq7.dtb cpsc2-overlay.dtb \
 	acq1001.dtb \
-	acq1002.dtb acq1002p.dtb acq1002r.dtb \
+	acq1002.dtb acq1002p.dtb acq1002r.dtb acq1002r_radcelf_overlay.dtb \
 	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb \
 	acq2106d37sfp.dtb acq210612.dtb \
 	acq2106_1000X_overlay.dtb acq2106_sc_overlay.dtb \
