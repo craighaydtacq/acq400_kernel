@@ -1,0 +1,138 @@
+/*
+ * Copyright (C) 2013 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/dts-v1/;
+
+#include "acq400_common.dtsi"
+
+/ {
+	model = "D-TACQ ACQ1002 DAQ Appliance";
+	compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
+
+
+
+	chosen {
+		bootargs = "";
+		stdout-path = "serial0:115200n8";
+		build="__DATE__";	
+		descr="device tree for ACQ1002, TWO SITES, WERCELF i2c";
+		notes="i2c mux back at correct address 0x74 hack for 314";
+		model="acq1002";
+		compatible_model="acq100?";		
+	};
+	
+	pps {
+		/* TRG.d5 on ptype */
+		gpios = <&gpio0 59 0>;
+		
+		compatible = "pps-gpio";
+		status = "okay";	
+	};
+	pps1 {
+		/* TRG.d6 on ptype ... we're not sure which one it will be */
+		gpios = <&gpio0 60 0>;
+	
+		compatible = "pps-gpio";
+		status = "disabled";	
+	};
+};
+
+&i2c0 {
+	status = "okay";
+	
+	i2c-reset = <&gpio0 46 0>;
+	i2cswitch@74 {
+		compatible = "nxp,pca9546";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg = <0x74>;
+		
+		i2c@0 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0>;
+		
+			mbclk: gpio@22 {
+				compatible="ti,tca6424";
+				vcc-supply = <&regulator_vccpint>;				
+				interrupts = <0 0>;
+				reg=<0x22>;
+			};	
+			leds: gpio@23 {
+				compatible="ti,tca6424";
+				vcc-supply = <&regulator_vccpint>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 0>;
+				reg=<0x23>;
+			};			
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+
+		elf1: i2c@1 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x1>;
+	
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+		elf2: i2c@2 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x2>;
+		
+			eeprom@50 {
+				compatible = "at,24c64";
+				reg = <0x50>;
+			};
+			hwmon@28 {
+				compatible="ad,ad7417";
+				reg=<0x28>;
+			};
+		};
+		
+		celf: i2c@3 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x3>;										
+		};		
+	};
+};
+
+&amba {
+	sitec: acq2006sc@40000000 {
+		reg = <0x40000000 0x10000>;
+		compatible = "D-TACQ,acq1001sc";
+		site = <0x0>;
+	};
+	site1: acq400fmc@40010000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40010000 0x10000>;
+		interrupts = <0x0 59 0x4>; 
+		interrupt-parent = <&intc>;
+		site = <0x1>;
+	};
+	site2: acq400fmc@40020000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40020000 0x10000>;
+		interrupts = <0x0 57 0x4>;
+		interrupt-parent = <&intc>;
+		site = <0x2>;
+	};	
+};
+
+
