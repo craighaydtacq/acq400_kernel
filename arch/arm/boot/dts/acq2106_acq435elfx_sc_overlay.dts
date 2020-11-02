@@ -9,27 +9,27 @@
 			dac@108 {
 				compatible="ad5675r";
 				reg=<0x0c>;
-			}
+			};
 			dac@916 {
 				compatible="ad5675r";
 				reg=<0x0d>;
-			}			
+			};			
 			dac@1724 {
 				compatible="ad5675r";
 				reg=<0x0e>;
-			}
+			};
 			dac@2532 {
 				compatible="ad5675r";
 				reg=<0x0f>;
-			}
+			};
 			gain@20 {
 				compatible="tca9539";
 				reg=<0x20>;
-			}
+			};
 			strobes@21 {
 				compatible="tca9539";
 				reg=<0x21>;
-			}
+			};
 		};
 	};
 
@@ -41,27 +41,27 @@
 			dac@0108 {
 				compatible="ad5675r";
 				reg=<0x0c>;
-			}
+			};
 			dac@0916 {
 				compatible="ad5675r";
 				reg=<0x0d>;
-			}			
+			};			
 			dac@1724 {
 				compatible="ad5675r";
 				reg=<0x0e>;
-			}
+			};
 			dac@2532 {
 				compatible="ad5675r";
 				reg=<0x0f>;
-			}
+			};
 			gain@20 {
 				compatible="tca9539";
 				reg=<0x20>;
-			}
+			};
 			strobes@21 {
 				compatible="tca9539";
 				reg=<0x21>;
-			}
+			};
 		};
 	};
 
@@ -73,27 +73,27 @@
 			dac@0108 {
 				compatible="ad5675r";
 				reg=<0x0c>;
-			}
+			};
 			dac@0916 {
 				compatible="ad5675r";
 				reg=<0x0d>;
-			}			
+			};			
 			dac@1724 {
 				compatible="ad5675r";
 				reg=<0x0e>;
-			}
+			};
 			dac@2532 {
 				compatible="ad5675r";
 				reg=<0x0f>;
-			}
+			};
 			gain@20 {
 				compatible="tca9539";
 				reg=<0x20>;
-			}
+			};
 			strobes@21 {
 				compatible="tca9539";
 				reg=<0x21>;
-			}
+			};
 		};
 	};	
 };
