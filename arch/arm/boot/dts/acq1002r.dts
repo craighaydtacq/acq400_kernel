@@ -109,9 +109,6 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			reg = <0x3>;
-			
-			#address-cells = <1>;
-			#size-cells = <0>;
 						
 			hwmon@28 {
 				compatible="ad,ad7417";
