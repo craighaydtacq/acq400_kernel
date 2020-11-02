@@ -1,0 +1,99 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	fragment@0 {
+		target = <&elf1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			dac@108 {
+				compatible="ad5675r";
+				reg=<0x0c>;
+			}
+			dac@916 {
+				compatible="ad5675r";
+				reg=<0x0d>;
+			}			
+			dac@1724 {
+				compatible="ad5675r";
+				reg=<0x0e>;
+			}
+			dac@2532 {
+				compatible="ad5675r";
+				reg=<0x0f>;
+			}
+			gain@20 {
+				compatible="tca9539";
+				reg=<0x20>;
+			}
+			strobes@21 {
+				compatible="tca9539";
+				reg=<0x21>;
+			}
+		};
+	};
+
+	fragment@1 {
+		target = <&elf3>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			dac@0108 {
+				compatible="ad5675r";
+				reg=<0x0c>;
+			}
+			dac@0916 {
+				compatible="ad5675r";
+				reg=<0x0d>;
+			}			
+			dac@1724 {
+				compatible="ad5675r";
+				reg=<0x0e>;
+			}
+			dac@2532 {
+				compatible="ad5675r";
+				reg=<0x0f>;
+			}
+			gain@20 {
+				compatible="tca9539";
+				reg=<0x20>;
+			}
+			strobes@21 {
+				compatible="tca9539";
+				reg=<0x21>;
+			}
+		};
+	};
+
+	fragment@2 {
+		target = <&elf5>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;			
+			dac@0108 {
+				compatible="ad5675r";
+				reg=<0x0c>;
+			}
+			dac@0916 {
+				compatible="ad5675r";
+				reg=<0x0d>;
+			}			
+			dac@1724 {
+				compatible="ad5675r";
+				reg=<0x0e>;
+			}
+			dac@2532 {
+				compatible="ad5675r";
+				reg=<0x0f>;
+			}
+			gain@20 {
+				compatible="tca9539";
+				reg=<0x20>;
+			}
+			strobes@21 {
+				compatible="tca9539";
+				reg=<0x21>;
+			}
+		};
+	};	
+};
