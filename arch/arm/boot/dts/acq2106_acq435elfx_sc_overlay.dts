@@ -6,19 +6,19 @@
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;			
-			dac@108 {
+			dac1@elf1 {
 				compatible="ad5675r";
 				reg=<0x0c>;
 			};
-			dac@916 {
+			dac9@elf1 {
 				compatible="ad5675r";
 				reg=<0x0d>;
 			};			
-			dac@1724 {
+			dac17@elf1 {
 				compatible="ad5675r";
 				reg=<0x0e>;
 			};
-			dac@2532 {
+			dac25@elf1 {
 				compatible="ad5675r";
 				reg=<0x0f>;
 			};
@@ -38,19 +38,19 @@
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;			
-			dac@0108 {
+			dac01@elf3 {
 				compatible="ad5675r";
 				reg=<0x0c>;
 			};
-			dac@0916 {
+			dac09@elf3 {
 				compatible="ad5675r";
 				reg=<0x0d>;
 			};			
-			dac@1724 {
+			dac17@elf3 {
 				compatible="ad5675r";
 				reg=<0x0e>;
 			};
-			dac@2532 {
+			dac25@elf3 {
 				compatible="ad5675r";
 				reg=<0x0f>;
 			};
@@ -70,19 +70,19 @@
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;			
-			dac@0108 {
+			dac01@elf5 {
 				compatible="ad5675r";
 				reg=<0x0c>;
 			};
-			dac@0916 {
+			dac09@elf5 {
 				compatible="ad5675r";
 				reg=<0x0d>;
 			};			
-			dac@1724 {
+			dac17@elf5 {
 				compatible="ad5675r";
 				reg=<0x0e>;
 			};
-			dac@2532 {
+			dac25elf5 {
 				compatible="ad5675r";
 				reg=<0x0f>;
 			};
