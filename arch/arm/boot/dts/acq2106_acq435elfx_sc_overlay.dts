@@ -38,11 +38,11 @@
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;			
-			dac01@elf3 {
+			dac1@elf3 {
 				compatible="ad5675r";
 				reg=<0x0c>;
 			};
-			dac09@elf3 {
+			dac9@elf3 {
 				compatible="ad5675r";
 				reg=<0x0d>;
 			};			
@@ -70,11 +70,11 @@
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;			
-			dac01@elf5 {
+			dac1@elf5 {
 				compatible="ad5675r";
 				reg=<0x0c>;
 			};
-			dac09@elf5 {
+			dac9@elf5 {
 				compatible="ad5675r";
 				reg=<0x0d>;
 			};			
@@ -82,7 +82,7 @@
 				compatible="ad5675r";
 				reg=<0x0e>;
 			};
-			dac25elf5 {
+			dac25@elf5 {
 				compatible="ad5675r";
 				reg=<0x0f>;
 			};
