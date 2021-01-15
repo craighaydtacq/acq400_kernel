@@ -334,6 +334,10 @@
 		interrupt-parent = <0x1>;
 		site = <3>;
 	};
+	bwg: bwg@80000000 {
+		compatible = "D-TACQ,cpsc2bwg";
+		reg = <0x80000000 0x3ffff>;
+	};
 };
 
 
