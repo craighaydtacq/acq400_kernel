@@ -22,6 +22,10 @@
 	chosen {
 		bootargs = "earlyprintk";
 		stdout-path = "serial0:115200n8";
+		build="__DATE__";
+		descr="device tree for CPSC2";
+		model="cpsc2";
+		compatible_model="cpsc2";
 	};
 
 	usb_phy0: phy0 {
