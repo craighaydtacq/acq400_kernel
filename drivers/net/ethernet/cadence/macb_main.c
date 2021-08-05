@@ -552,8 +552,9 @@ static int macb_mii_probe(struct net_device *dev)
 	}
 
 	/* mask with MAC supported features */
+	netdev_info(dev, "Cadence GEM/MAC: TechLab: patch for FIBRE (88E1512)\n");
 	if (macb_is_gem(bp) && bp->caps & MACB_CAPS_GIGABIT_MODE_AVAILABLE)
-		phydev->supported &= PHY_GBIT_FEATURES;
+		phydev->supported &= PHY_GBIT_FEATURES | SUPPORTED_FIBRE;
 	else
 		phydev->supported &= PHY_BASIC_FEATURES;
 
