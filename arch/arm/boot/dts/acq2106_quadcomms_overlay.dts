@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	fragment@0 {
+		target = <&commsC>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+	fragment@1 {
+		target = <&commsD>;
+		__overlay__ {
+			status = "okay";
+		};
+	};	
+};
