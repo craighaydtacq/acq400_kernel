@@ -104,6 +104,7 @@
 		sn = <2>;
 	};	
 	commsB: mgt400@400c0000 {
+		status = "okay";
 		compatible = "D-TACQ,mgt400";
 		reg = <0x400c0000 0x10000>;			
 		interrupts = <0x0 58 0x4>;
@@ -112,6 +113,7 @@
 		sn = <1>;
 	};
 	commsA: mgt400@400d0000 {
+		status = "okay";
 		compatible = "D-TACQ,mgt400";
 		reg = <0x400d0000 0x10000>;						
 		interrupts = <0x0 56 0x4>;
