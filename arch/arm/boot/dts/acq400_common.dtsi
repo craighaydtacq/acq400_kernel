@@ -146,12 +146,6 @@
 		 interrupts = <0x0 29 0x4>;
 		 interrupt-parent = <0x1>;				
 	 };
-	 axidmaA: axidma@801e0000 {
-	 	status = "disabled";		/* @@todo placeholder .. non DTS driver used */
-	 };
-	 axidmaB: axidma@801f0000 {
-	 	status = "disabled";		/* @@todo placeholder .. non DTS driver used */
-	 };
  };
 
  
