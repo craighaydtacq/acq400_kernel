@@ -1022,7 +1022,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq400dsp1_overlay.dtb acq400dsp2_overlay.dtb \
 	acq400_uart0.dtb \
 	acq1014.dtb \
-	kmcu.dtb kmcuz30.dtb kmcuz30_bpe.dtb z7io.dtb \
+	kmcu.dtb kmcuz30.dtb kmcuz30_bpe.dtb z7io.dtb z7io_cpld_overlay.dtb \
 	acq2006.dtb acq2006b.dtb acq2006bEU.dtb
 dtb-$(CONFIG_MACH_ARMADA_370) += \
 	armada-370-db.dtb \
