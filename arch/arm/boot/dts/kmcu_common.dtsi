@@ -84,16 +84,6 @@
 	};
 };
 
-/*
-&cpld_interface_axi_quad_spi_0 {
-    cpld_io: spidev@0 {
-	compatible = "spidev";
-	reg = <0x0>;
-	spi-max-frequency = <25000000>;
-    };
-};
-*/
-
 &amba {
 	sitec: acq2006sc@40000000 {
 		reg = <0x40000000 0x10000>;
@@ -125,59 +115,6 @@
 		interrupt-parent = <0x1>;
 		site = <0x3>;
 	};
-		
-	cpld_spi: axi_quad_spi@40061000 {
-		status = "disabled";
-		label = "pgmwashere";		
-		
-		compatible = "xlnx,xps-spi-2.00.a";
-		reg = <0x40061000 0x1000>;
-		
-		interrupts = <0x00 34 0x01>;
-		interrupt-names = "ip2intc";
-		interrupt-parent = <0x1>;
-		fifo-size = <0x10>;
-		
-		num-cs = <0x01>;
-		bits-per-word = <0x08>;
-		clock-names = "ext_spi_clk\0s_axi_aclk";
-		clocks = <0x01 0x0f 0x01 0x0f>;
-		
-		xlnx,num-ss-bits = <0x01>;
-		xlnx,spi-mode = <0x00>;
-
-		spidev@0 {
-			compatible = "spidev";
-			reg = <0x00>;
-			spi-max-frequency = <25000000>;
-		};
-	};
-	/*
-	axi_quad_spi@40061000 {
-		
-		bits-per-word = <0x08>;
-					
-		clock-names = "ext_spi_clk\0s_axi_aclk";
-		clocks = <0x01 0x0f 0x01 0x0f>;
-		compatible = "xlnx,axi-quad-spi-3.2\0xlnx,xps-spi-2.00.a";
-		fifo-size = <0x10>;
-		interrupt-names = "ip2intc_irpt";
-		interrupt-parent = <0x04>;
-		interrupts = <0x00 0x34 0x01>;
-		num-cs = <0x01>;
-					
-		reg = <0x40061000 0x1000>;
-		xlnx,num-ss-bits = <0x01>;
-		xlnx,spi-mode = <0x00>;
-	
-		spidev@0 {
-			compatible = "spidev";
-			reg = <0x00>;
-			spi-max-frequency = <25000000>;
-		};
-	
-	};
-	*/
 	commsC: mgt400@400b0000 {
 		compatible = "D-TACQ,mgt400";
 		phys = "pcie";

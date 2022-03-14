@@ -8,7 +8,12 @@
 
 /dts-v1/;
 
-#include "kmcu_common.dtsi"
+#include "acq400_common.dtsi"
+
+&qspi {
+	is-dual = <1>;
+	xlnx,qspi-mode = <0x2>;
+};
 
 / {
        compatible = "xlnx,zynq-7000";
@@ -24,3 +29,221 @@
        };
 };
 
+
+&amba {
+	sitec: acq2006sc@40000000 {
+		reg = <0x40000000 0x10000>;
+		compatible = "D-TACQ,acq2006sc";
+		site = <0x0>;
+		/* potential sc interrupt .. not assigned for now 
+		interrupts = <0x0 32 0x0>;
+		interrupt-parent = <0x1>;			
+		*/		
+	};
+	site1: acq400fmc@40010000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40010000 0x10000>;
+		interrupts = <0x0 59 0x4>; 
+		interrupt-parent = <&intc>;
+		site = <0x1>;
+	};
+	site2: acq400fmc@40020000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40020000 0x10000>;
+		interrupts = <0x0 57 0x4>;
+		interrupt-parent = <0x1>;
+		site = <0x2>;
+	};
+	site3: acq400fmc@40030000 {
+		compatible = "D-TACQ,acq400fmc";
+		reg = <0x40030000 0x10000>;
+		interrupts = <0x0 55 0x4>;
+		interrupt-parent = <0x1>;
+		site = <0x3>;
+	};
+
+	cpld_spi: axi_quad_spi@40061000 {		
+		status = "disabled";
+		label = "pgmwashere";		
+		
+		compatible = "xlnx,xps-spi-2.00.a";
+		reg = <0x40061000 0x1000>;
+		
+		interrupts = <0x00 34 0x01>;
+		interrupt-names = "ip2intc";
+		interrupt-parent = <0x1>;
+		fifo-size = <0x10>;
+		
+		num-cs = <0x01>;
+		bits-per-word = <0x08>;
+		clock-names = "ext_spi_clk\0s_axi_aclk";
+		clocks = <0x01 0x0f 0x01 0x0f>;
+		
+		xlnx,num-ss-bits = <0x01>;
+		xlnx,spi-mode = <0x00>;
+		
+		#address-cells = <1>;
+		#size-cells = <0>;
+		
+		spidev@0 {
+			compatible = "spidev";			
+			reg = <0>;
+			spi-max-frequency = <25000000>;
+		};
+		
+	};
+	/*
+	axi_quad_spi@40061000 {
+		
+		bits-per-word = <0x08>;
+					
+		clock-names = "ext_spi_clk\0s_axi_aclk";
+		clocks = <0x01 0x0f 0x01 0x0f>;
+		compatible = "xlnx,axi-quad-spi-3.2\0xlnx,xps-spi-2.00.a";
+		fifo-size = <0x10>;
+		interrupt-names = "ip2intc_irpt";
+		interrupt-parent = <0x04>;
+		interrupts = <0x00 0x34 0x01>;
+		num-cs = <0x01>;
+					
+		reg = <0x40061000 0x1000>;
+		xlnx,num-ss-bits = <0x01>;
+		xlnx,spi-mode = <0x00>;
+	
+		spidev@0 {
+			compatible = "spidev";
+			reg = <0x00>;
+			spi-max-frequency = <25000000>;
+		};
+	
+	};
+	*/
+	commsC: mgt400@400b0000 {
+		compatible = "D-TACQ,mgt400";
+		phys = "pcie";
+		physid = <1>;
+		reg = <0x400b0000 0x10000>;			
+		/* interrupts = <0x0 58 0x4>; */
+		interrupt-parent = <0x1>;
+		site = <0xb>;
+		sn = <2>;
+	};	
+	commsB: mgt400@400c0000 {
+		compatible = "D-TACQ,mgt400";
+		phys = "sfp";
+		physid = <0>;
+		reg = <0x400c0000 0x10000>;			
+		interrupts = <0x0 58 0x4>;
+		interrupt-parent = <0x1>;
+		site = <0xc>;
+		sn = <1>;
+	};
+	commsA: mgt400@400d0000 {
+		compatible = "D-TACQ,mgt400";
+		phys = "sfp";
+		physid = <0>;
+		reg = <0x400d0000 0x10000>;						
+		interrupts = <0x0 56 0x4>;
+		interrupt-parent = <0x1>;
+		site = <0xd>;
+		sn = <0>;
+	};	
+};
+
+&usb0 {
+	 status = "disabled";
+};
+ 
+
+
+&i2c0 {	 
+	 status = "okay";
+	 
+	 pca9574@20 {
+		 compatible = "nxp,pca9574";
+		 reg = <0x20>;
+		 gpio-controller;
+		 #gpio-cells = <0x02>;
+		 phandle = <0x1b>;
+	 };
+
+	 eeprom@57 {
+		 compatible = "atmel,24c256";
+		 reg = <0x57>;
+		 pagesize = <0x40>;
+		 #address-cells = <0x01>;
+		 #size-cells = <0x01>;
+		 phandle = <0x1c>;
+
+		 eth_mac@7f7a {
+			 reg = <0x7f7a 0x06>;
+			 phandle = <0x1d>;
+		 };
+	 };
+ };
+
+ &i2c1 {
+	 status = "disabled";
+	 
+	 i2c0sw73: i2cswitch@73 {
+		 compatible = "nxp,pca9548";
+		 #address-cells = <1>;
+		 #size-cells = <0>;
+		 reg = <0x73>;
+		 
+		 mb_i2c: i2c@0 {
+			 #address-cells = <1>;
+			 #size-cells = <0>;
+			 reg = <0>;
+			 
+			 /* uRTM */
+			 elves: gpio@21 {
+				 compatible="nxp,pca9534";
+				 reg=<0x21>;				
+			 };
+			 hwmon@28 {
+				 compatible="ad,ad7417";
+				 reg=<0x28>;
+			 };
+			 hwmon@29 {
+				 compatible="ad,ad7417";
+				 reg=<0x29>;
+			 };
+			 
+		 };
+ 
+		 elf1: i2c@1 {
+			 #address-cells = <1>;
+			 #size-cells = <0>;
+			 reg = <0x1>;
+	 
+			 eeprom@50 {
+				 compatible = "at,24c64";
+				 reg = <0x51>;
+			 };
+			 hwmon@28 {
+				 compatible="ad,ad7417";
+				 reg=<0x29>;
+			 };
+		 };
+		 elf2: i2c@2 {
+			 #address-cells = <1>;
+			 #size-cells = <0>;
+			 reg = <0x2>;
+		 
+			 eeprom@50 {
+				 compatible = "at,24c64";
+				 reg = <0x52>;
+			 };
+			 hwmon@28 {
+				 compatible="ad,ad7417";
+				 reg=<0x2a>;
+			 };
+		 };
+		 elf3: i2c@3 {
+			 #address-cells = <1>;
+			 #size-cells = <0>;
+			 reg = <0x3>;
+		 };
+	 };	 
+ };
