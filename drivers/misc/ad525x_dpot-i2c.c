@@ -104,10 +104,33 @@ static const struct i2c_device_id ad_dpot_id[] = {
 MODULE_DEVICE_TABLE(i2c, ad_dpot_id);
 
 #ifdef CONFIG_OF
-/* trial with single entry .. this is going to be very repetitive. is it really needed?
- * however, gpio-pca953x.c does exactly this .. */
+
 static const struct of_device_id ad_pot_of_match_table[] = {
-	{ .compatible = "ad,ad5282", .data = AD5282_ID },
+	{ .compatible = "ad,ad5258", .data = (void*)AD5258_ID},
+	{ .compatible = "ad,ad5259", .data = (void*)AD5259_ID},
+	{ .compatible = "ad,ad5251", .data = (void*)AD5251_ID},
+	{ .compatible = "ad,ad5252", .data = (void*)AD5252_ID},
+	{ .compatible = "ad,ad5253", .data = (void*)AD5253_ID},
+	{ .compatible = "ad,ad5254", .data = (void*)AD5254_ID},
+	{ .compatible = "ad,ad5255", .data = (void*)AD5255_ID},
+	{ .compatible = "ad,ad5241", .data = (void*)AD5241_ID},
+	{ .compatible = "ad,ad5242", .data = (void*)AD5242_ID},
+	{ .compatible = "ad,ad5243", .data = (void*)AD5243_ID},
+	{ .compatible = "ad,ad5245", .data = (void*)AD5245_ID},
+	{ .compatible = "ad,ad5246", .data = (void*)AD5246_ID},
+	{ .compatible = "ad,ad5247", .data = (void*)AD5247_ID},
+	{ .compatible = "ad,ad5248", .data = (void*)AD5248_ID},
+	{ .compatible = "ad,ad5280", .data = (void*)AD5280_ID},
+	{ .compatible = "ad,ad5282", .data = (void*)AD5282_ID},
+	{ .compatible = "ad,adn2860", .data = (void*)ADN2860_ID},
+	{ .compatible = "ad,ad5273", .data = (void*)AD5273_ID},
+	{ .compatible = "ad,ad5161", .data = (void*)AD5161_ID},
+	{ .compatible = "ad,ad5171", .data = (void*)AD5171_ID},
+	{ .compatible = "ad,ad5170", .data = (void*)AD5170_ID},
+	{ .compatible = "ad,ad5172", .data = (void*)AD5172_ID},
+	{ .compatible = "ad,ad5173", .data = (void*)AD5173_ID},
+	{ .compatible = "ad,ad5272", .data = (void*)AD5272_ID},
+	{ .compatible = "ad,ad5274", .data = (void*)AD5274_ID},
 	{ }
 };
 #endif
