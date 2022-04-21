@@ -1,0 +1,40 @@
+/*
+ * Copyright (C) 2013-2019 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/dts-v1/;
+#include "acq2106_common.dtsi"
+#include "mgt.dtsi"
+
+&psup {
+	status = "disabled";
+};
+
+&psun {
+	status = "disabled";
+}
+
+&psu_2206 {
+	status = "enabled";
+}
+
+/ {
+	model = "D-TACQ ACQ2206 DAQ Appliance";
+	compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
+
+	chosen {
+		bootargs = "";
+		stdout-path = "serial0:115200n8";
+		build="__DATE__";	
+		descr="device tree for ACQ2206, SIX SITES supports MGT-508";
+		model="acq2206";
+		compatible_model="acq2206";		
+	};
+};	
+
+
+

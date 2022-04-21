@@ -30,6 +30,12 @@
 				compatible="ad,ad7417";
 				reg=<0x28>;
 			};
+			psu_2206: ad5282@2c {
+				status = "disabled";
+				compatible = "ad,ad5282";
+				reg = <0x2c>;
+			};
+				
 			
 			pwm: lp3943@60 {
 				compatible = "ti,lp3943";
@@ -78,10 +84,12 @@
 				};				
 			};			
 			psup: isl22313@50 {
+				status = "okay";
 				compatible = "isl,isl22313";
 				reg = <0x50>;
 			};
 			psun: isl22313@51 {
+				status = "okay";
 				compatible = "isl,isl22313";
 				reg = <0x51>; 
 			};
