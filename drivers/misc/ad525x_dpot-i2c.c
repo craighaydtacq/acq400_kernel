@@ -103,9 +103,21 @@ static const struct i2c_device_id ad_dpot_id[] = {
 };
 MODULE_DEVICE_TABLE(i2c, ad_dpot_id);
 
+#ifdef CONFIG_OF
+/* trial with single entry .. this is going to be very repetitive. is it really needed?
+ * however, gpio-pca953x.c does exactly this .. */
+static const struct of_device_id ad_pot_of_match_table[] = {
+	{ .compatible = "ad,ad5282", .data = AD5282_ID },
+	{ }
+};
+#endif
+
 static struct i2c_driver ad_dpot_i2c_driver = {
 	.driver = {
 		.name	= "ad_dpot",
+#ifdef CONFIG_OF
+		.of_match_table = ad_pot_of_match_table,
+#endif
 	},
 	.probe		= ad_dpot_i2c_probe,
 	.remove		= ad_dpot_i2c_remove,
