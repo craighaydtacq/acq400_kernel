@@ -7,8 +7,8 @@
  */
 
 /dts-v1/;
-#include "acq2106_common.dtsi"
-#include "mgt.dtsi"
+#include "acq2206_common.dtsi"
+
 
 / {
 	model = "D-TACQ ACQ2206 DAQ Appliance";

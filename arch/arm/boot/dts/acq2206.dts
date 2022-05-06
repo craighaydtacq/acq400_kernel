@@ -7,20 +7,9 @@
  */
 
 /dts-v1/;
-#include "acq2106_common.dtsi"
-#include "mgt.dtsi"
+#include "acq2206_common.dtsi"
 
-&psup {
-	status = "disabled";
-};
 
-&psun {
-	status = "disabled";
-}
-
-&psu_2206 {
-	status = "enabled";
-}
 
 / {
 	model = "D-TACQ ACQ2206 DAQ Appliance";
@@ -35,6 +24,4 @@
 		compatible_model="acq2206";		
 	};
 };	
-
-
 
