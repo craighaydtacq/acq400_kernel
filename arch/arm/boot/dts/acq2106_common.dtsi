@@ -91,7 +91,7 @@
 		reg = <0x400a0000 0x10000>;
 		/* interrupts = <0x0 58 0x4>; */
 		/* interrupt-parent = <0x1>;  */
-		site = <9>;
+		site = <10>;
 		sn = <3>;
 	};
 	commsC: mgt400@400b0000 {
@@ -100,7 +100,7 @@
 		reg = <0x400b0000 0x10000>;
 		/* interrupts = <0x0 56 0x4>; */
 		/* interrupt-parent = <0x1>;  */
-		site = <10>;
+		site = <11>;
 		sn = <2>;
 	};	
 	commsB: mgt400@400c0000 {		
