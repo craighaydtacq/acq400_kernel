@@ -88,6 +88,16 @@
 					read-only;
 				};							
 			};
+			bogus@4 {
+				#address-cells = <1>;
+				#size-cells = <0>;
+				reg = <0x4>;
+				eeprom@50 {
+					compatible = "at,spd";
+					reg = <0x50>;
+					read-only;
+				};
+			};
 		};
 	};
 };
