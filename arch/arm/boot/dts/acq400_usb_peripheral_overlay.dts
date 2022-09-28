@@ -1,0 +1,11 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	fragment@0 {
+		target = <&usb0>;
+		__overlay__ {
+			dr_mode = "peripheral";
+			status = "okay";
+		};
+	};
+};

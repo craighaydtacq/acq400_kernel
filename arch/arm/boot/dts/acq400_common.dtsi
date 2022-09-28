@@ -107,8 +107,8 @@
  };
  
  &usb0 {
-	 status = "okay";
-	 dr_mode = "host";
+	 status = "disabled";
+	 dr_mode = "nogo";
 	 usb-phy = <&usb_phy0>;
  };
  
