@@ -1,6 +1,6 @@
 /dts-v1/;
 #include "acq2106_common.dtsi"
-#include "mgt.dtsi"
+
 
 &psup {
 	status = "disabled";
