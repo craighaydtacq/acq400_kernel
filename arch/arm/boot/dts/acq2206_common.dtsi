@@ -11,7 +11,7 @@
 };
 
 &psu_2206 {
-	status = "enabled";
+	status = "okay";
 };
 
 
