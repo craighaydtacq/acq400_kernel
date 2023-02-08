@@ -1,0 +1,23 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {					
+	sfp4@3 {
+		target = <&sfp_r3>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			eeprom@50 {
+				compatible = "at,spd";								
+				reg = <0x50>;
+				read-only;
+				status="okay";
+			};
+			ddm@51 {
+				compatible = "at,spd";
+				reg = <0x51>;
+				read-only;
+				status="okay";
+			};			
+		};					
+	};
+};

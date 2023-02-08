@@ -26,65 +26,26 @@
 			reg = <0x73>;
 				
 			/* 4 sfp's, each with eeprom at 0xa0, control at 0xa2 */					
-			sfp@0 {
+			sfp_r0: sfp@0 {
 				#address-cells = <1>;
 				#size-cells = <0>;
-				reg = <0x0>;
-				eeprom@50 {
-					compatible = "at,spd";								
-					reg = <0x50>;
-					read-only;
-				};
-				ddm@51 {
-					compatible = "at,spd";
-					reg = <0x51>;
-					read-only;
-				};							
+				
+				reg = <0x0>;				
 			};
-			sfp@1 {
+			sfp_r1: sfp@1 {
 				#address-cells = <1>;
 				#size-cells = <0>;
-				reg = <0x1>;
-				eeprom@50 {
-					compatible = "at,spd";								
-					reg = <0x50>;
-					read-only;
-				};
-				ddm@51 {
-					compatible = "at,spd";
-					reg = <0x51>;
-					read-only;
-				};													
+				reg = <0x1>;													
 			};
-			sfp@2 {
+			sfp_r2: sfp@2 {
 				#address-cells = <1>;
 				#size-cells = <0>;
-				reg = <0x2>;
-				eeprom@50 {
-					compatible = "at,spd";								
-					reg = <0x50>;
-					read-only;
-				};
-				ddm@51 {
-					compatible = "at,spd";
-					reg = <0x51>;
-					read-only;
-				};																				
+				reg = <0x2>;																				
 			};
-			sfp@3 {
+			sfp_r3: sfp@3 {
 				#address-cells = <1>;
 				#size-cells = <0>;
-				reg = <0x3>;
-				eeprom@50 {
-					compatible = "at,spd";								
-					reg = <0x50>;
-					read-only;
-				};
-				ddm@51 {
-					compatible = "at,spd";
-					reg = <0x51>;
-					read-only;
-				};							
+				reg = <0x3>;							
 			};
 			bogus@4 {
 				#address-cells = <1>;

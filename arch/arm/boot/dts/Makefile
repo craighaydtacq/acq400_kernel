@@ -1021,6 +1021,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq400_usb_host_overlay.dtb acq400_usb_otg_overlay.dtb acq400_usb_peripheral_overlay.dtb \
 	acq2106_quadcomms_overlay.dtb acq2106_hudp_overlay.dtb \
 	acq2206.dtb acq2206sfp.dtb \
+	mgt482_sfp1_overlay.dtb mgt482_sfp2_overlay.dtb mgt482_sfp3_overlay.dtb mgt482_sfp4_overlay.dtb \
 	acq400dsp1_overlay.dtb acq400dsp2_overlay.dtb \
 	acq400_uart0.dtb \
 	acq1014.dtb \
