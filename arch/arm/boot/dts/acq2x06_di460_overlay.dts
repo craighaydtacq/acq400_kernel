@@ -1,0 +1,39 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	fragment@0 {
+		target = <&elf1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			gpio@elf1 {
+				compatible="nxp,pca9534";
+				reg=<0x20>;				
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&elf2>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			gpio@elf2 {
+				compatible="nxp,pca9534";
+				reg=<0x20>;				
+			};			
+		};
+	};
+
+	fragment@2 {
+		target = <&elf3>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			gpio@elf3 {
+				compatible="nxp,pca9534";
+				reg=<0x20>;				
+			};			
+		};
+	};	
+};

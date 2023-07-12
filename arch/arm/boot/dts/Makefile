@@ -1018,6 +1018,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb acq2106sfp2.dtb \
 	acq2106d37sfp.dtb acq210612.dtb \
 	acq2106_1000X_overlay.dtb acq2106_sc_overlay.dtb acq2106_acq435elfx_sc_overlay.dtb \
+	acq2x06_di460_overlay.dtb \
 	acq400_usb_host_overlay.dtb acq400_usb_otg_overlay.dtb acq400_usb_peripheral_overlay.dtb \
 	acq2106_quadcomms_overlay.dtb acq2106_hudp_overlay.dtb \
 	acq2206.dtb acq2206sfp.dtb \
