@@ -1015,13 +1015,14 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	picozed-zynq7.dtb cpsc2-zynq7.dtb cpsc2-overlay.dtb \
 	acq1001.dtb \
 	acq1002.dtb acq1002p.dtb acq1002r.dtb acq1002w.dtb \
-	acq2106.dtb acq2106sfp.dtb acq2106d37.dtb acq2106sfp2.dtb \
-	acq2106d37sfp.dtb acq210612.dtb \
+	acq2106.dtb acq2106sfp.dtb acq210612.dtb acq2106sfp2.dtb \
+	acq2106d37.dtb acq2106d37sfp.dtb \
 	acq2106_1000X_overlay.dtb acq2106_sc_overlay.dtb acq2106_acq435elfx_sc_overlay.dtb \
 	acq2x06_di460_overlay.dtb \
 	acq400_usb_host_overlay.dtb acq400_usb_otg_overlay.dtb acq400_usb_peripheral_overlay.dtb \
 	acq2106_quadcomms_overlay.dtb acq2106_hudp_overlay.dtb \
 	acq2206.dtb acq2206sfp.dtb \
+	acq2206d37.dtb acq2206d37sfp.dtb \
 	mgt482_sfp1_overlay.dtb mgt482_sfp2_overlay.dtb mgt482_sfp3_overlay.dtb mgt482_sfp4_overlay.dtb \
 	acq400dsp1_overlay.dtb acq400dsp2_overlay.dtb \
 	acq400_uart0.dtb \
