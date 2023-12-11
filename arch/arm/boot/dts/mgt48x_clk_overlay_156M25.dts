@@ -5,7 +5,7 @@
 		target = <&si570_clk>;
 		__overlay__ {
 			status="okay";
-			clock-frequency = <200000000>;
+			clock-frequency = <156250000>;
 		};					
 	};
 };

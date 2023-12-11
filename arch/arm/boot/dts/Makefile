@@ -1024,7 +1024,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq2206.dtb acq2206sfp.dtb \
 	acq2206d37.dtb acq2206d37sfp.dtb \
 	mgt482_sfp1_overlay.dtb mgt482_sfp2_overlay.dtb mgt482_sfp3_overlay.dtb mgt482_sfp4_overlay.dtb \
-	mgt48x_clk_overlay.dtb \
+	mgt48x_clk_overlay.dtb mgt48x_clk_overlay_156M25.dtb \
 	acq400dsp1_overlay.dtb acq400dsp2_overlay.dtb \
 	acq400_uart0.dtb \
 	acq1014.dtb \
