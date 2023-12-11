@@ -1,0 +1,10 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {					
+	clk@5d {
+		target = <&si570_clk>;
+		__overlay__ {
+			status="okay";
+		};					
+	};
+};

@@ -14,7 +14,7 @@
 			compatible = "at,24c64";
 			reg = <0x54>;
 		};
-		clk@5d {
+		si570_clk: clk@5d {
 			compatible = "silabs,si570";
 			reg = <0x5d>;
 			status="disabled";
