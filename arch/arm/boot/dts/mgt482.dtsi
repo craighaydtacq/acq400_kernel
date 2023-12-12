@@ -17,9 +17,9 @@
 		si570_clk: mgtclk@55 {
 			compatible = "silabs,si570";
 			reg = <0x55>;
-			temperature-stability = <20>;
+			temperature-stability = <7>;
 			factory-fout = <200000000>;
-			clock-frequency = <156250000>;
+			clock-output-names = "si570_mgt48x";
 			status="disabled";
 		};
 		i2cswitch@73 {
