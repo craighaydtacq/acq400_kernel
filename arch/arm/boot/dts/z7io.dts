@@ -160,11 +160,18 @@
 			 phandle = <0x1d>;
 		 };
 	 };
+	 iic_axi_iic_mmc: mmcmailbox@2a {
+		compatible = "desy,mmcmailbox";
+		/* reg = <0x40>;  */    /* 40 mmc_mailbox 0-0040: 2048 byte mmcmailbox EEPROM, 16 bytes/write */
+		reg = <0x41>;
+		/* reg = <0x1b>;  */ /* 1b one byte read failed mmc_mailbox_probe 490 */
+		/* reg = <0x6a>;  */ /* 6a NFG eeprom instantiated but no go */
+		/* reg = <0x71>;  */ /* 71 NFG eeprom instantiated but no go */
+	 };
  };
 
  &i2c1 {
 	 status = "disabled";
-	 
 	 i2c0sw73: i2cswitch@73 {
 		 compatible = "nxp,pca9548";
 		 #address-cells = <1>;
@@ -188,7 +195,7 @@
 			 hwmon@29 {
 				 compatible="ad,ad7417";
 				 reg=<0x29>;
-			 };
+			 };			 
 			 
 		 };
  
