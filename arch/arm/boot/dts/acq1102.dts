@@ -1,0 +1,66 @@
+/*
+ * Copyright (C) 2013-2019 D-TACQ Solutions Ltd - http://www.d-tacq.com/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/dts-v1/;
+#include "acq2206_common.dtsi"
+#include "mgt.dtsi"
+
+
+/ {
+	model = "D-TACQ ACQ1102 DAQ Appliance";
+	compatible = "xlnx,zynq-zed", "xlnx,zynq-7000";
+
+	chosen {
+		bootargs = "";
+		stdout-path = "serial0:115200n8";
+		build="__DATE__";	
+		descr="device tree for ACQ1102, TWO SITES supports MGTA, MGTB";
+		model="acq1102";
+		compatible_model="acq1102";		
+	};
+};	
+
+&site3 {
+	status = "disabled";
+};
+
+&site4 {
+	status = "disabled";
+};
+
+&site5 {
+	status = "disabled";
+};
+
+&site6 {
+	status = "disabled";
+};
+
+&commsC {
+	status = "disabled";
+};
+
+&commsD {
+	status = "disabled";
+};
+
+&elf3 {
+	status = "disabled";
+};
+
+&elf4 {
+	status = "disabled";
+};
+
+&elf5 {
+	status = "disabled";
+};
+
+&elf6 {
+	status = "disabled";
+};
