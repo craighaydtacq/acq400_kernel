@@ -105,7 +105,7 @@
 				reg=<0x28>;
 			};
 			psu_2206: ad5282@2c {
-				status = "disabled";
+				status = "ok";
 				compatible = "ad,ad5282";
 				reg = <0x2c>;
 			};
@@ -146,33 +146,35 @@
 		sfp1: i2c@3 {
 			#address-cells = <1>;
 			#size-cells = <0>;
+			reg = <0x3>;
 			eeprom@50 {
 				compatible = "at,spd";
 				reg = <0x50>;
 				read-only;
-				status="okay";
+				status="disabled";
 			};
 			ddm@51 {
 				compatible = "at,spd";
 				reg = <0x51>;
 				read-only;
-				status="okay";
+				status="disabled";
 			};
 		};
 		sfp2: i2c@4 {
 			#address-cells = <1>;
 			#size-cells = <0>;
+			reg = <0x4>;
 			eeprom@50 {
 				compatible = "at,spd";
 				reg = <0x50>;
 				read-only;
-				status="okay";
+				status="disabled";
 			};
 			ddm@51 {
 				compatible = "at,spd";
 				reg = <0x51>;
 				read-only;
-				status="okay";
+				status="disabled";
 			};
 			si570_clk: mgtclk@55 {
 				compatible = "silabs,si570";

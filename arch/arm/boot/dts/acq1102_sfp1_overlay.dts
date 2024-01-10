@@ -1,0 +1,15 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	sfp1@0 {
+		target = <&sfp1>;
+		__overlay__ {
+			eeprom@50 {
+				status="okay";
+			};
+			ddm@51 {
+				status="okay";
+			};
+		};
+	};
+};
