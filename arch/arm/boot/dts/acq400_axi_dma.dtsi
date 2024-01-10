@@ -8,6 +8,7 @@
  		reg = < 0x801f0000 0x10000 >;
 		xlnx,include-sg = <1>;
 	 
+		status = "okay";
  		dma-channel@801f0030 {
  			compatible = "xlnx,axi-dma-s2mm-channel";
  			interrupts = < 0 54 4 >;
@@ -22,6 +23,7 @@
  		reg = < 0x801e0000 0x10000 >;
 		xlnx,include-sg = <1>;
 
+		status = "disabled";
  		dma-channel@801e0030 {
  			compatible = "xlnx,axi-dma-s2mm-channel";
  			// WARNING: check interrupt number
