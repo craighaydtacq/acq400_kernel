@@ -23,7 +23,9 @@
 };	
 
 
+
 #include "acq400_common.dtsi"
+
 
 &amba {
 	sitec: acq2006sc@40000000 {

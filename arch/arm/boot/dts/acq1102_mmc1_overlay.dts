@@ -1,0 +1,10 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	mmc1@0 {
+		target = <&sdhci1>;
+		__overlay__ {
+			status = "okay";
+		};
+	};
+};
