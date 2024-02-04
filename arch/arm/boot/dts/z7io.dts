@@ -90,8 +90,9 @@
 			reg = <0>;
 			spi-max-frequency = <25000000>;
 		};
-		
 	};
+
+
 	/*
 	axi_quad_spi@40061000 {
 		
@@ -128,6 +129,28 @@
 		site = <0xb>;
 		sn = <2>;
 	};
+
+	iic_axi_iic_mmc: i2c@400e0000 {
+		status = "disabled";
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+		clock-names = "s_axi_aclk";
+		/*
+		clocks = <0xffffffff 0x0f>;
+		*/
+		clocks = <&clkc 15>;
+		compatible = "xlnx,xps-iic-2.00.a";
+		interrupt-names = "iic2intc_irpt";
+		interrupt-parent = <&intc>;
+		interrupts = <0x00 0x22 0x04>;
+		reg = <0x400e0000 0x1000>;
+		phandle = <0x13>;
+
+		mmcmailbox@2a {
+				compatible = "desy,mmcmailbox";
+				reg = <0x2a>;
+		};
+	};
 };
 
 &usb0 {
@@ -159,14 +182,6 @@
 			 reg = <0x7f7a 0x06>;
 			 phandle = <0x1d>;
 		 };
-	 };
-	 iic_axi_iic_mmc: mmcmailbox@2a {
-		compatible = "desy,mmcmailbox";
-		/* reg = <0x40>;  */    /* 40 mmc_mailbox 0-0040: 2048 byte mmcmailbox EEPROM, 16 bytes/write */
-		reg = <0x41>;
-		/* reg = <0x1b>;  */ /* 1b one byte read failed mmc_mailbox_probe 490 */
-		/* reg = <0x6a>;  */ /* 6a NFG eeprom instantiated but no go */
-		/* reg = <0x71>;  */ /* 71 NFG eeprom instantiated but no go */
 	 };
  };
 
@@ -226,11 +241,6 @@
 				 compatible="ad,ad7417";
 				 reg=<0x2a>;
 			 };
-		 };
-		 elf3: i2c@3 {
-			 #address-cells = <1>;
-			 #size-cells = <0>;
-			 reg = <0x3>;
 		 };
 	 };	 
  };

@@ -1040,6 +1040,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	kmcuz30_bpe.dtb \
 	z7io.dtb \
 	z7io_cpld_overlay.dtb \
+	z7io_mbox_overlay.dtb \
 	z7io_rtmi2c_overlay.dtb \
 	acq400_uart0.dtb \
 	acq400_2D_overlay.dtb \
