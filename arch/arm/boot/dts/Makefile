@@ -1058,6 +1058,7 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq2106_quadcomms_overlay.dtb \
 	acq2106_hudp_overlay.dtb \
 	acq2x06_enable_mgtAB.dtb \
+	mgtC_overlay.dtb \
 	acq2x06_di460_overlay.dtb \
 	mgt482_sfp1_overlay.dtb \
 	mgt482_sfp2_overlay.dtb \
