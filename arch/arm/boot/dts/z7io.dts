@@ -68,8 +68,7 @@
 		
 		compatible = "xlnx,xps-spi-2.00.a";
 		reg = <0x40061000 0x1000>;
-		
-		interrupts = <0x00 34 0x01>;
+		interrupts = <0x00 0x24 0x01>;
 		interrupt-names = "ip2intc";
 		interrupt-parent = <0x1>;
 		fifo-size = <0x10>;
