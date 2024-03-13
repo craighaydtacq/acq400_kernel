@@ -220,9 +220,17 @@
 	 
 			 eeprom@50 {
 				 compatible = "at,24c64";
+				 reg = <0x50>;
+			 };
+			 geographical_eeprom@51 {
+				 compatible = "at,24c64";
 				 reg = <0x51>;
 			 };
 			 hwmon@28 {
+                 compatible="ad,ad7417";
+                 reg=<0x28>;
+			 };
+			 geographical_hwmon@29 {
 				 compatible="ad,ad7417";
 				 reg=<0x29>;
 			 };
@@ -233,10 +241,18 @@
 			 reg = <0x2>;
 		 
 			 eeprom@50 {
+                compatible = "at,24c64";
+                reg = <0x50>;
+			 };
+			 geographical_eeprom@51 {
 				 compatible = "at,24c64";
 				 reg = <0x52>;
 			 };
 			 hwmon@28 {
+                 compatible="ad,ad7417";
+                 reg=<0x28>;
+			 };
+			 geographical_hwmon@2a {
 				 compatible="ad,ad7417";
 				 reg=<0x2a>;
 			 };
