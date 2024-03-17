@@ -115,7 +115,7 @@
  
  
  &spi0 {
-	status = "okay";
+    status = "okay";
 	num-cs = <6>;
 	is-decoded-cs = <1>;
  };
