@@ -209,8 +209,7 @@
 			 hwmon@29 {
 				 compatible="ad,ad7417";
 				 reg=<0x29>;
-			 };			 
-			 
+			 };	 
 		 };
  
 		 elf1: i2c@1 {
@@ -218,21 +217,25 @@
 			 #size-cells = <0>;
 			 reg = <0x1>;
 	 
-			 eeprom@50 {
+			 elf1_eeprom: eeprom@50 {
 				 compatible = "at,24c64";
 				 reg = <0x50>;
+				 status = "disabled";
 			 };
-			 geographical_eeprom@51 {
+			 elf1_geo_eeprom: geographical_eeprom@51 {
 				 compatible = "at,24c64";
 				 reg = <0x51>;
+				 status = "disabled";
 			 };
-			 hwmon@28 {
+			 elf1_hwmon: hwmon@28 {
                  compatible="ad,ad7417";
                  reg=<0x28>;
+                 status = "disabled";
 			 };
-			 geographical_hwmon@29 {
+			 elf1_geo_hwmon: geographical_hwmon@29 {
 				 compatible="ad,ad7417";
 				 reg=<0x29>;
+				 status = "disabled";
 			 };
 		 };
 		 elf2: i2c@2 {
@@ -240,21 +243,25 @@
 			 #size-cells = <0>;
 			 reg = <0x2>;
 		 
-			 eeprom@50 {
+			 elf2_eeprom: eeprom@50 {
                 compatible = "at,24c64";
                 reg = <0x50>;
+                status = "disabled";
 			 };
-			 geographical_eeprom@51 {
+			 elf2_geo_eeprom: geographical_eeprom@51 {
 				 compatible = "at,24c64";
 				 reg = <0x52>;
+				 status = "disabled";
 			 };
-			 hwmon@28 {
+			 elf2_hwmon: hwmon@28 {
                  compatible="ad,ad7417";
                  reg=<0x28>;
+                 status = "disabled";
 			 };
-			 geographical_hwmon@2a {
+			 elf2_geo_hwmon: geographical_hwmon@2a {
 				 compatible="ad,ad7417";
 				 reg=<0x2a>;
+				 status = "disabled";
 			 };
 		 };
 	 };	 

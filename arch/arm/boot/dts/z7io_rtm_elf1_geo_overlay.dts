@@ -1,0 +1,16 @@
+/dts-v1/;
+/plugin/;	/* allow undefined label references and record them */
+/ {
+	fragment@1 {
+		target = <&elf1_geo_eeprom>;
+		__overlay__ {
+			status = "okay";
+		};		
+	};
+	fragment@2 {
+		target = <&elf1_geo_hwmon>;
+		__overlay__ {
+			status = "okay";
+		};		
+	};	
+};

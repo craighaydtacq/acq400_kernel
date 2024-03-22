@@ -1042,6 +1042,10 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	z7io_cpld_overlay.dtb \
 	z7io_mbox_overlay.dtb \
 	z7io_rtmi2c_overlay.dtb \
+	z7io_rtm_elf1_overlay.dtb \
+	z7io_rtm_elf1_geo_overlay.dtb \
+	z7io_rtm_elf2_overlay.dtb \
+	z7io_rtm_elf2_geo_overlay.dtb \
 	acq400_uart0.dtb \
 	acq400_2D_overlay.dtb \
 	acq400_usb_host_overlay.dtb \
