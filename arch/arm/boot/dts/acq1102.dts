@@ -26,6 +26,31 @@
 
 #include "acq400_common.dtsi"
 
+/*
+{
+         aliases {
+                    ethernet1 = &gem1;
+         };
+};
+*/
+
+/* gem1 connects to SFP3 1000-baseX , available AFTER FPGA boot, enable with overlay */
+&gem1 {
+         phy-mode = "gmii";
+         phy-handle = <&ethernet_phy1>;
+
+         ethernet_phy1: ethernet-phy@0 {
+                 reg = <0>;
+                 xlnx,phy-type = <0x5>;
+                 /* device_type = "ethernet-phy"; */
+         };
+};
+
+&clkc {
+        /* has no effect */
+        clock-names = "gem1_emio_clk";
+};
+
 
 &amba {
 	sitec: acq2006sc@40000000 {
