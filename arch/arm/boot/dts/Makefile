@@ -1053,8 +1053,8 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	acq400_usb_peripheral_overlay.dtb \
  	acq400dsp1_overlay.dtb \
 	acq400dsp2_overlay.dtb \
-	acq1102_hudpA_overlay.dtb \
-	acq1102_hudpB_overlay.dtb \
+	acq1102_commsA_overlay.dtb \
+	acq1102_commsB_overlay.dtb \
 	acq1102_mmc1_overlay.dtb \
 	acq1102_sfp1_overlay.dtb \
 	acq1102_sfp2_overlay.dtb \
