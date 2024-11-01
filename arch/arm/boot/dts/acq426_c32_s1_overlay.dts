@@ -10,10 +10,7 @@
 			#size-cells = <0>;			
 			status = "okay";
 
-			ad4858_1A: adc@0{
-				reg = <0x10>;
-				
-				spi-max-frequency = <10000000>;
+			ad4858_1A: adc@0{		
 /*                
                 refin-supply = <&refin>;
                 clocks = <&ref_clk>;
@@ -22,7 +19,9 @@
                 dma-names = "rx";
                 pwms = <&axi_pwm_gen 0 0>;
                 pwm-names = "cnv";
-*/                
+*/
+				reg = <0x10>;
+				spi-max-frequency = <10000000>;
 				compatible = "adi,ad4858";
 			};
 			ad4858_1B: adc@1{
@@ -42,7 +41,7 @@
 
 				spi-max-frequency = <10000000>;
 				compatible = "adi,ad4858";
-			};
+			};			
 			ad4858_1X: adc@f{
 				reg = <0x1F>;
 
