@@ -1071,7 +1071,8 @@ dtb-$(CONFIG_ARCH_ZYNQ) += \
 	mgt482_sfp3_overlay.dtb \
 	mgt482_sfp4_overlay.dtb \
 	mgt48x_clk_overlay.dtb \
-	mgt48x_clk_overlay_156M25.dtb
+	mgt48x_clk_overlay_156M25.dtb \
+	acq400_ad4858_overlay.dtb
 
 
 dtb-$(CONFIG_MACH_ARMADA_370) += \
