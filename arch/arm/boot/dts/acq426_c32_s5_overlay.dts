@@ -47,6 +47,7 @@
 
 				spi-max-frequency = <10000000>;
 				compatible = "adi,ad4858";
+				status = "disabled";
 			};
 		};
 	};
